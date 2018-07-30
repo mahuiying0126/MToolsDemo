@@ -134,12 +134,19 @@ static NSString *cellID = @"SlideButton";
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MSlideButtonCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+    
     [cell.button setTitleColor:self.selectColor forState:UIControlStateSelected];
-    cell.button.titleLabel.font = MFONT(16);
+    
     [cell.button setTitleColor:self.normalColor forState:UIControlStateNormal];
     MButtonModel *model = _tempArray[indexPath.row];
+    
     [cell.button setTitle:model.title forState:UIControlStateNormal];
     cell.button.selected = model.isSelect;
+    if (model.isSelect) {
+        cell.button.titleLabel.font = MFONT(18);
+    }else{
+        cell.button.titleLabel.font = MFONT(16);
+    }
     CGRect frame = cell.button.frame;
     frame.size.width = model.width;
     cell.button.frame = frame;
@@ -178,6 +185,7 @@ static NSString *cellID = @"SlideButton";
             MSlideButtonCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
             float x = cell.center.x;
             [UIView animateWithDuration:0.25 animations:^{
+                
                 if (self.buttonCollectionView.contentSize.width > self.maxWidth) {
                     if (x > self.maxWidth/2.0 && x < self.buttonCollectionView.contentSize.width - self.maxWidth/2.0) {
                         self.buttonCollectionView.contentOffset = CGPointMake(x-self.maxWidth/2.0, 0);
@@ -191,9 +199,11 @@ static NSString *cellID = @"SlideButton";
                 CGRect frame = self.bottonLine.frame;
                 frame.origin.x = CGRectGetMidX(rect) - (Bottom_H / 2);
                 self.bottonLine.frame = frame;
+                
             }];
+            
         }
-    
+        
         if (self.slideDelegate && [self.slideDelegate respondsToSelector:@selector(slideButtonIndex:)]) {
             [self.slideDelegate slideButtonIndex:indexPath.row];
         }
