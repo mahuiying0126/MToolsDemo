@@ -124,9 +124,7 @@ static NSString *cellID = @"SlideButton";
         index = _tempArray.count - 1;
     }
     NSIndexPath *path = [NSIndexPath indexPathForItem:index inSection:0];
-    
-    
-//    [_buttonCollectionView scrollToItemAtIndexPath:path atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+
     [self collectionView:_buttonCollectionView didSelectItemAtIndexPath:path];
 }
 
@@ -150,11 +148,7 @@ static NSString *cellID = @"SlideButton";
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     CGFloat height = self.frame.size.height - 4;
-    if (_tempStyle == SlideFixed) {
-        //等分
-        CGFloat width = self.maxWidth / (_tempArray.count);
-        return CGSizeMake(width, height);
-    }
+    
     MButtonModel *model = _tempArray[indexPath.row];
     
     return CGSizeMake(model.width , height);
@@ -175,7 +169,7 @@ static NSString *cellID = @"SlideButton";
         if (_tempStyle == SlideFixed) {
             //等分
             float x =  ((indexPath.row+1) * (self.maxWidth / _tempArray.count)) - (self.maxWidth / _tempArray.count) / 2  - (BottomLine_W / 2);
-            [UIView animateWithDuration:0.3 animations:^{
+            [UIView animateWithDuration:0.25 animations:^{
                 CGRect frame = self.bottonLine.frame;
                 frame.origin.x = x;
                 self.bottonLine.frame = frame;
