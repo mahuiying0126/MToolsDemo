@@ -18,6 +18,10 @@
 		C68F23F0210EAD1600ADE1B4 /* SliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F23EF210EAD1600ADE1B4 /* SliderViewController.m */; };
 		C68F23F5210EAE3C00ADE1B4 /* MSliderProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F23F4210EAE3C00ADE1B4 /* MSliderProgressView.m */; };
 		C68F23F8210EAE6900ADE1B4 /* UIView+MSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F23F7210EAE6900ADE1B4 /* UIView+MSlider.m */; };
+		C68F23FE210EF66500ADE1B4 /* MSlideButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F23FA210EF66500ADE1B4 /* MSlideButtonView.m */; };
+		C68F23FF210EF66500ADE1B4 /* MSlideButtonCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F23FC210EF66500ADE1B4 /* MSlideButtonCollectionViewCell.m */; };
+		C68F2402210EF73B00ADE1B4 /* NSString+MSliderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F2401210EF73B00ADE1B4 /* NSString+MSliderButton.m */; };
+		C68F2405210EF7F300ADE1B4 /* SliderButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F2404210EF7F300ADE1B4 /* SliderButtonViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +45,14 @@
 		C68F23F4210EAE3C00ADE1B4 /* MSliderProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSliderProgressView.m; sourceTree = "<group>"; };
 		C68F23F6210EAE6900ADE1B4 /* UIView+MSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+MSlider.h"; sourceTree = "<group>"; };
 		C68F23F7210EAE6900ADE1B4 /* UIView+MSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSlider.m"; sourceTree = "<group>"; };
+		C68F23FA210EF66500ADE1B4 /* MSlideButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSlideButtonView.m; sourceTree = "<group>"; };
+		C68F23FB210EF66500ADE1B4 /* MSlideButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSlideButtonView.h; sourceTree = "<group>"; };
+		C68F23FC210EF66500ADE1B4 /* MSlideButtonCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSlideButtonCollectionViewCell.m; sourceTree = "<group>"; };
+		C68F23FD210EF66500ADE1B4 /* MSlideButtonCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSlideButtonCollectionViewCell.h; sourceTree = "<group>"; };
+		C68F2400210EF73B00ADE1B4 /* NSString+MSliderButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MSliderButton.h"; sourceTree = "<group>"; };
+		C68F2401210EF73B00ADE1B4 /* NSString+MSliderButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MSliderButton.m"; sourceTree = "<group>"; };
+		C68F2403210EF7F300ADE1B4 /* SliderButtonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SliderButtonViewController.h; sourceTree = "<group>"; };
+		C68F2404210EF7F300ADE1B4 /* SliderButtonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderButtonViewController.m; sourceTree = "<group>"; };
 		E47FD7B1FB8FD3D38F15D962 /* Pods-MToolsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MToolsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MToolsDemo/Pods-MToolsDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +160,8 @@
 			children = (
 				C68F23EE210EAD1600ADE1B4 /* SliderViewController.h */,
 				C68F23EF210EAD1600ADE1B4 /* SliderViewController.m */,
+				C68F2403210EF7F300ADE1B4 /* SliderButtonViewController.h */,
+				C68F2404210EF7F300ADE1B4 /* SliderButtonViewController.m */,
 			);
 			path = SlideViewControl;
 			sourceTree = "<group>";
@@ -155,6 +169,7 @@
 		C68F23F1210EAE0800ADE1B4 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				C68F23F9210EF62900ADE1B4 /* MSliderButton */,
 				C68F23F2210EAE2100ADE1B4 /* MSliderProgressView */,
 			);
 			path = Tools;
@@ -169,6 +184,19 @@
 				C68F23F7210EAE6900ADE1B4 /* UIView+MSlider.m */,
 			);
 			path = MSliderProgressView;
+			sourceTree = "<group>";
+		};
+		C68F23F9210EF62900ADE1B4 /* MSliderButton */ = {
+			isa = PBXGroup;
+			children = (
+				C68F23FB210EF66500ADE1B4 /* MSlideButtonView.h */,
+				C68F23FA210EF66500ADE1B4 /* MSlideButtonView.m */,
+				C68F23FD210EF66500ADE1B4 /* MSlideButtonCollectionViewCell.h */,
+				C68F23FC210EF66500ADE1B4 /* MSlideButtonCollectionViewCell.m */,
+				C68F2400210EF73B00ADE1B4 /* NSString+MSliderButton.h */,
+				C68F2401210EF73B00ADE1B4 /* NSString+MSliderButton.m */,
+			);
+			path = MSliderButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,13 +291,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C68F2402210EF73B00ADE1B4 /* NSString+MSliderButton.m in Sources */,
 				C68F23F5210EAE3C00ADE1B4 /* MSliderProgressView.m in Sources */,
 				C68F23F8210EAE6900ADE1B4 /* UIView+MSlider.m in Sources */,
+				C68F23FE210EF66500ADE1B4 /* MSlideButtonView.m in Sources */,
 				C68F23F0210EAD1600ADE1B4 /* SliderViewController.m in Sources */,
 				C68F23EB210EA5A700ADE1B4 /* MNavigationViewController.m in Sources */,
 				C68F2393210EA2DE00ADE1B4 /* ViewController.m in Sources */,
+				C68F23FF210EF66500ADE1B4 /* MSlideButtonCollectionViewCell.m in Sources */,
 				C68F239E210EA2E000ADE1B4 /* main.m in Sources */,
 				C68F2390210EA2DE00ADE1B4 /* AppDelegate.m in Sources */,
+				C68F2405210EF7F300ADE1B4 /* SliderButtonViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
