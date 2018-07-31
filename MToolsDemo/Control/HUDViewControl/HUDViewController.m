@@ -8,6 +8,7 @@
 
 #import "HUDViewController.h"
 #import "GKShowEasyViewHUD.h"
+#import "MLoadingViewHUD.h"
 @interface HUDViewController ()
 
 

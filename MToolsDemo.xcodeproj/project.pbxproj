@@ -25,6 +25,7 @@
 		C68F244621103D9A00ADE1B4 /* UIView+EasyShow.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F244521103D9A00ADE1B4 /* UIView+EasyShow.m */; };
 		C68F244921103DF100ADE1B4 /* GKShowEasyViewHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F244821103DF100ADE1B4 /* GKShowEasyViewHUD.m */; };
 		C68F244D21103FFD00ADE1B4 /* HUDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F244C21103FFD00ADE1B4 /* HUDViewController.m */; };
+		C68F24512110420000ADE1B4 /* MLoadingViewHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F24502110420000ADE1B4 /* MLoadingViewHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,8 @@
 		C68F244821103DF100ADE1B4 /* GKShowEasyViewHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKShowEasyViewHUD.m; sourceTree = "<group>"; };
 		C68F244B21103FFD00ADE1B4 /* HUDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUDViewController.h; sourceTree = "<group>"; };
 		C68F244C21103FFD00ADE1B4 /* HUDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUDViewController.m; sourceTree = "<group>"; };
+		C68F244F2110420000ADE1B4 /* MLoadingViewHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLoadingViewHUD.h; sourceTree = "<group>"; };
+		C68F24502110420000ADE1B4 /* MLoadingViewHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLoadingViewHUD.m; sourceTree = "<group>"; };
 		E47FD7B1FB8FD3D38F15D962 /* Pods-MToolsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MToolsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MToolsDemo/Pods-MToolsDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +182,7 @@
 		C68F23F1210EAE0800ADE1B4 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				C68F244E211041E100ADE1B4 /* MLoadingHUD */,
 				C68F244321103CF100ADE1B4 /* MEasyShowHUD */,
 				C68F23F9210EF62900ADE1B4 /* MSliderButton */,
 				C68F23F2210EAE2100ADE1B4 /* MSliderProgressView */,
@@ -228,6 +232,15 @@
 				C68F244C21103FFD00ADE1B4 /* HUDViewController.m */,
 			);
 			path = HUDViewControl;
+			sourceTree = "<group>";
+		};
+		C68F244E211041E100ADE1B4 /* MLoadingHUD */ = {
+			isa = PBXGroup;
+			children = (
+				C68F244F2110420000ADE1B4 /* MLoadingViewHUD.h */,
+				C68F24502110420000ADE1B4 /* MLoadingViewHUD.m */,
+			);
+			path = MLoadingHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +341,7 @@
 				C68F23FE210EF66500ADE1B4 /* MSlideButtonView.m in Sources */,
 				C68F244D21103FFD00ADE1B4 /* HUDViewController.m in Sources */,
 				C68F23F0210EAD1600ADE1B4 /* SliderViewController.m in Sources */,
+				C68F24512110420000ADE1B4 /* MLoadingViewHUD.m in Sources */,
 				C68F23EB210EA5A700ADE1B4 /* MNavigationViewController.m in Sources */,
 				C68F2393210EA2DE00ADE1B4 /* ViewController.m in Sources */,
 				C68F23FF210EF66500ADE1B4 /* MSlideButtonCollectionViewCell.m in Sources */,
