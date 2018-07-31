@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "MLoadingType.h"
 @interface MLoadingOptions : NSObject
 
 + (instancetype)shareOptions;
@@ -27,5 +28,9 @@
 @property (nonatomic,strong) UIColor *bgColor;
 /** 动画图片数组*/
 @property (nonatomic,strong)NSArray<UIImage *> *playImagesArray;
+/** 加载框所显示的类型*/
+@property (nonatomic, assign) LodingShowType lodingType;
+/** 显示/隐藏 加载框的动画*/
+@property (nonatomic, assign) LodingAnimationType animationType;
 
 @end

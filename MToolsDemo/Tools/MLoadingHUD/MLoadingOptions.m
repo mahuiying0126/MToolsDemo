@@ -23,7 +23,14 @@ static MLoadingOptions *_options = nil;
 - (instancetype)init{
     self = [super init];
     if (self) {
-        
+        _lodingType = LodingShowTypeTurnAround ;
+        _animationType = LodingAnimationTypeBounce ;
+        _textFont = [UIFont systemFontOfSize:15];
+        _tintColor = [UIColor blackColor];
+        _bgColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.05];
+        _isResponseSuperEvent = YES ;
+        _showOnWindow = NO ;
+        _cornerWidth = 5;
     }
     return self;
 }
