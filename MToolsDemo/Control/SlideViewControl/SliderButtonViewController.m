@@ -8,11 +8,13 @@
 
 #import "SliderButtonViewController.h"
 #import "MSlideButtonView.h"
+
 @interface SliderButtonViewController ()
 
 @property (strong, nonatomic) MSlideButtonView *threeBtnView;
 
 @property (nonatomic, strong) MSlideButtonView *moreBtnView;
+
 
 @end
 
@@ -23,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.view.backgroundColor = [UIColor whiteColor];
     self.threeBtnView = [[MSlideButtonView alloc]initFrame:CGRectMake(0, 50, self.view.bounds.size.width, 50) withButtonData:@[@"全部",@"我的",@"动态"] slideStyle:SlideFixed normalColor:UIColorForRGB(0x818b8a) selectColor:UIColorForRGB(0x3f83e6)];
     [self.view addSubview:self.threeBtnView];
@@ -33,8 +36,10 @@
     
 }
 
+
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.moreBtnView scrollToIndex:9];
+     
 }
 
 - (void)didReceiveMemoryWarning {

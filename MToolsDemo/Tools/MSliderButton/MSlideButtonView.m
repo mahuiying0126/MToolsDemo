@@ -9,10 +9,12 @@
 #import "MSlideButtonView.h"
 #import "MSlideButtonCollectionViewCell.h"
 #import "NSString+MSliderButton.h"
+
 #define BottomLine_W 25
 #define Bottom_H 20
 #define MFONT(f) [UIFont systemFontOfSize:f]
 #define UIColorForRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 
 @interface MSlideButtonView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 /** 最大宽度*/
@@ -201,7 +203,6 @@ static NSString *cellID = @"SlideButton";
                 self.bottonLine.frame = frame;
                 
             }];
-            
         }
         
         if (self.slideDelegate && [self.slideDelegate respondsToSelector:@selector(slideButtonIndex:)]) {
