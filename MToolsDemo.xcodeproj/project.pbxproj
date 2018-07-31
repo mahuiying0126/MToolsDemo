@@ -26,6 +26,7 @@
 		C68F244921103DF100ADE1B4 /* GKShowEasyViewHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F244821103DF100ADE1B4 /* GKShowEasyViewHUD.m */; };
 		C68F244D21103FFD00ADE1B4 /* HUDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F244C21103FFD00ADE1B4 /* HUDViewController.m */; };
 		C68F24512110420000ADE1B4 /* MLoadingViewHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F24502110420000ADE1B4 /* MLoadingViewHUD.m */; };
+		C68F24542110493B00ADE1B4 /* MLoadingOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F24532110493B00ADE1B4 /* MLoadingOptions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,8 @@
 		C68F244C21103FFD00ADE1B4 /* HUDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUDViewController.m; sourceTree = "<group>"; };
 		C68F244F2110420000ADE1B4 /* MLoadingViewHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLoadingViewHUD.h; sourceTree = "<group>"; };
 		C68F24502110420000ADE1B4 /* MLoadingViewHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLoadingViewHUD.m; sourceTree = "<group>"; };
+		C68F24522110493B00ADE1B4 /* MLoadingOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLoadingOptions.h; sourceTree = "<group>"; };
+		C68F24532110493B00ADE1B4 /* MLoadingOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLoadingOptions.m; sourceTree = "<group>"; };
 		E47FD7B1FB8FD3D38F15D962 /* Pods-MToolsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MToolsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MToolsDemo/Pods-MToolsDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,6 +242,8 @@
 			children = (
 				C68F244F2110420000ADE1B4 /* MLoadingViewHUD.h */,
 				C68F24502110420000ADE1B4 /* MLoadingViewHUD.m */,
+				C68F24522110493B00ADE1B4 /* MLoadingOptions.h */,
+				C68F24532110493B00ADE1B4 /* MLoadingOptions.m */,
 			);
 			path = MLoadingHUD;
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 				C68F2402210EF73B00ADE1B4 /* NSString+MSliderButton.m in Sources */,
 				C68F23F5210EAE3C00ADE1B4 /* MSliderProgressView.m in Sources */,
 				C68F23F8210EAE6900ADE1B4 /* UIView+MSlider.m in Sources */,
+				C68F24542110493B00ADE1B4 /* MLoadingOptions.m in Sources */,
 				C68F23FE210EF66500ADE1B4 /* MSlideButtonView.m in Sources */,
 				C68F244D21103FFD00ADE1B4 /* HUDViewController.m in Sources */,
 				C68F23F0210EAD1600ADE1B4 /* SliderViewController.m in Sources */,
