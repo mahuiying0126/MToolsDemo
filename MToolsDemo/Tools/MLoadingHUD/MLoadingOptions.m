@@ -24,7 +24,7 @@ static MLoadingOptions *_options = nil;
     self = [super init];
     if (self) {
         _lodingType = LodingShowTypeTurnAround ;
-        _animationType = LodingAnimationTypeBounce ;
+        _animationType = LodingChangeAnimationTypeBounce ;
         _textFont = [UIFont systemFontOfSize:15];
         _tintColor = [UIColor blackColor];
         _bgColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.05];

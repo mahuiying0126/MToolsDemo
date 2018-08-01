@@ -138,13 +138,13 @@
         [self removeFromSuperview];
     };
     switch (self.showConfig.animationType) {
-        case LodingAnimationTypeNone:
+        case LodingChangeAnimationTypeNone:
             completion() ;
             break;
-        case LodingAnimationTypeBounce:
+        case LodingChangeAnimationTypeBounce:
             [self showBounceAnimationStart:NO completion:completion];
             break ;
-        case LodingAnimationTypeFade:
+        case LodingChangeAnimationTypeFade:
             [self showFadeAnimationStart:NO completion:completion ] ;
             break ;
         default:
@@ -227,7 +227,9 @@
         textLabelY = self.imageView.bottom + EasyShowLodingImageEdge;
     }
     self.textLabel.frame = CGRectMake(textLabelX, textLabelY, textSize.width, textSize.height);
-
+    if ((self.showConfig.lodingType%2 !=0) && !textLegth) {
+        self.imageView.y += 8 ;
+    }
     if (self.showConfig.cornerWidth > 0) {
         [self.lodingBgView setRoundedCorners:self.showConfig.cornerWidth];
     }
@@ -300,13 +302,13 @@
         }
     };
     switch (self.showConfig.animationType) {
-        case LodingAnimationTypeNone:
+        case LodingChangeAnimationTypeNone:
             animation() ;
             break;
-        case LodingAnimationTypeBounce:
+        case LodingChangeAnimationTypeBounce:
             [self showBounceAnimationStart:YES completion:animation];
             break ;
-        case LodingAnimationTypeFade:
+        case LodingChangeAnimationTypeFade:
             [self showFadeAnimationStart:YES completion:animation] ;
             break ;
         default:

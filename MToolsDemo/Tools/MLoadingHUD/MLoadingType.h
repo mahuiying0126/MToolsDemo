@@ -30,13 +30,13 @@ typedef NS_ENUM(NSInteger , LodingShowType) {
 };
 
 /**
- * 动画类型
+ * 视图切换动画
  */
-typedef NS_ENUM(NSInteger , LodingAnimationType) {
-    LodingAnimationTypeUndefine = 0 , /** 未定义 */
-    LodingAnimationTypeNone ,//无动画
-    LodingAnimationTypeFade,//alpha改变
-    LodingAnimationTypeBounce ,//抖动
+typedef NS_ENUM(NSInteger , LodingChangeAnimationType) {
+    LodingChangeAnimationTypeUndefine = 0 , /** 未定义 */
+    LodingChangeAnimationTypeNone ,//无动画
+    LodingChangeAnimationTypeFade,//alpha改变
+    LodingChangeAnimationTypeBounce ,//抖动
 } ;
 
 

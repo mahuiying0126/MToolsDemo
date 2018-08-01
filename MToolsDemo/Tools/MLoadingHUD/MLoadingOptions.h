@@ -31,6 +31,6 @@
 /** 加载框所显示的类型*/
 @property (nonatomic, assign) LodingShowType lodingType;
 /** 显示/隐藏 加载框的动画*/
-@property (nonatomic, assign) LodingAnimationType animationType;
+@property (nonatomic, assign) LodingChangeAnimationType animationType;
 
 @end
