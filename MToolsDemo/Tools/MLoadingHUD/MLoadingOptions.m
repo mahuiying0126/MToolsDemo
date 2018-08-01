@@ -7,7 +7,7 @@
 //
 
 #import "MLoadingOptions.h"
-
+#import "MLoadingViewHUD.h"
 static MLoadingOptions *_options = nil;
 
 @implementation MLoadingOptions
@@ -33,6 +33,19 @@ static MLoadingOptions *_options = nil;
         _cornerWidth = 5;
     }
     return self;
+}
+
+- (void)setSuperView:(UIView *)superView{
+    if (_superView) {
+        for (UIView *subview in _superView.subviews) {
+            if ([subview isKindOfClass:[MLoadingViewHUD class]]) {
+                MLoadingViewHUD *showView = (MLoadingViewHUD *)subview;
+                [showView removeSelfFromSuperView];
+                break;
+            }
+        }
+    }
+    _superView = superView;
 }
 
 @end

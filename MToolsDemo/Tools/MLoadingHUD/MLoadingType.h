@@ -16,7 +16,6 @@ typedef NS_ENUM(NSInteger , LodingShowType) {
     LodingShowTypeUnDefine = 0 , /** 未定义 */
     LodingShowTypeTurnAround     = 1 ,  //默认转圈样式
     LodingShowTypeTurnAroundLeft = 2 ,  //默认在左边转圈样式
-    
     LodingShowTypeIndicator      = 3 ,  //菊花样式
     LodingShowTypeIndicatorLeft  = 4 ,  //菊花在左边的样式
     

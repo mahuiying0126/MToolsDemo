@@ -28,6 +28,8 @@
 		C68F24512110420000ADE1B4 /* MLoadingViewHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F24502110420000ADE1B4 /* MLoadingViewHUD.m */; };
 		C68F24542110493B00ADE1B4 /* MLoadingOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F24532110493B00ADE1B4 /* MLoadingOptions.m */; };
 		C68F245B211073A600ADE1B4 /* MLoadingType.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F245A211073A600ADE1B4 /* MLoadingType.m */; };
+		C6A293642111AE8A00EF1F5E /* UIView+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A293632111AE8A00EF1F5E /* UIView+Loading.m */; };
+		C6A293672111C83900EF1F5E /* MEasyShowLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A293662111C83900EF1F5E /* MEasyShowLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,10 @@
 		C68F24532110493B00ADE1B4 /* MLoadingOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLoadingOptions.m; sourceTree = "<group>"; };
 		C68F2459211073A600ADE1B4 /* MLoadingType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLoadingType.h; sourceTree = "<group>"; };
 		C68F245A211073A600ADE1B4 /* MLoadingType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLoadingType.m; sourceTree = "<group>"; };
+		C6A293622111AE8A00EF1F5E /* UIView+Loading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Loading.h"; sourceTree = "<group>"; };
+		C6A293632111AE8A00EF1F5E /* UIView+Loading.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Loading.m"; sourceTree = "<group>"; };
+		C6A293652111C83900EF1F5E /* MEasyShowLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEasyShowLabel.h; sourceTree = "<group>"; };
+		C6A293662111C83900EF1F5E /* MEasyShowLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEasyShowLabel.m; sourceTree = "<group>"; };
 		E47FD7B1FB8FD3D38F15D962 /* Pods-MToolsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MToolsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MToolsDemo/Pods-MToolsDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -249,6 +255,10 @@
 				C68F24532110493B00ADE1B4 /* MLoadingOptions.m */,
 				C68F2459211073A600ADE1B4 /* MLoadingType.h */,
 				C68F245A211073A600ADE1B4 /* MLoadingType.m */,
+				C6A293622111AE8A00EF1F5E /* UIView+Loading.h */,
+				C6A293632111AE8A00EF1F5E /* UIView+Loading.m */,
+				C6A293652111C83900EF1F5E /* MEasyShowLabel.h */,
+				C6A293662111C83900EF1F5E /* MEasyShowLabel.m */,
 			);
 			path = MLoadingHUD;
 			sourceTree = "<group>";
@@ -345,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6A293672111C83900EF1F5E /* MEasyShowLabel.m in Sources */,
 				C68F2402210EF73B00ADE1B4 /* NSString+MSliderButton.m in Sources */,
 				C68F23F5210EAE3C00ADE1B4 /* MSliderProgressView.m in Sources */,
 				C68F23F8210EAE6900ADE1B4 /* UIView+MSlider.m in Sources */,
@@ -362,6 +373,7 @@
 				C68F2405210EF7F300ADE1B4 /* SliderButtonViewController.m in Sources */,
 				C68F244921103DF100ADE1B4 /* GKShowEasyViewHUD.m in Sources */,
 				C68F244621103D9A00ADE1B4 /* UIView+EasyShow.m in Sources */,
+				C6A293642111AE8A00EF1F5E /* UIView+Loading.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
