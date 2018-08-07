@@ -51,13 +51,13 @@ static NSString *cellID = @"CellID";
 
 - (NSMutableArray *)dataArray{
     if (!_dataArray) {
-        _dataArray = @[@"播放器进度条带缓冲进度",@"滑动按钮",@"HUD 视图"].mutableCopy;
+        _dataArray = @[@"播放器进度条带缓冲进度",@"滑动按钮",@"HUD 视图",@"简易键盘不带表情"].mutableCopy;
     }
     return _dataArray;
 }
 -(NSMutableArray *)controlArray{
     if (!_controlArray) {
-        _controlArray = @[@"SliderViewController",@"SliderButtonViewController",@"HUDViewController"].mutableCopy;
+        _controlArray = @[@"SliderViewController",@"SliderButtonViewController",@"HUDViewController",@"EasyKeyboardViewController"].mutableCopy;
     }
     return _controlArray;
 }
