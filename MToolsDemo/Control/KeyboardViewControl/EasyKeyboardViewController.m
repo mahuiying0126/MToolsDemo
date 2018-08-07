@@ -8,12 +8,15 @@
 
 #import "EasyKeyboardViewController.h"
 #import "MReplyCommentView.h"
+#import "MKeyboardInputView.h"
 @interface EasyKeyboardViewController ()
 
 /** *按钮*/
 @property (nonatomic, strong) UIButton *rightButton;
 /** 评论键盘*/
 @property (nonatomic, strong) MReplyCommentView *replyView;
+/** <#注释#>*/
+@property (nonatomic, strong) MKeyboardInputView *keyboardView;
 
 @end
 
@@ -26,6 +29,15 @@
     UIButton *right = [self createButtonForTitle:@"弹出键盘"];
     [right addTarget:self action:@selector(selectInputBoard) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:right];
+    
+    CGFloat maxHeigh = [UIScreen mainScreen].bounds.size.height - 64;
+    CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width;
+    self.keyboardView = [[MKeyboardInputView alloc]init];
+    CGFloat fitHeiht = [self.keyboardView heightWithFit];
+    CGRect frame = CGRectMake(0, maxHeigh - fitHeiht, maxWidth, fitHeiht);
+    self.keyboardView.frame = frame;
+    self.keyboardView.initFrame = frame;
+    [self.view addSubview:self.keyboardView];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
