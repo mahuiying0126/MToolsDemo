@@ -106,7 +106,7 @@ static GKShowOptions *_showInstance;
     }
     //创建之前要将原来的给移除掉
     for (UIView *subview in view.subviews) {
-        if ([subview isKindOfClass:[self class]] || [subview isKindOfClass:NSClassFromString(@"KooShowViewHUD")]) {
+        if ([subview isKindOfClass:[self class]] || [subview isKindOfClass:NSClassFromString(@"MShowViewHUD")]) {
             [subview removeFromSuperview];
             break;
         }

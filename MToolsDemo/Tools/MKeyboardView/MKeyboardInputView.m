@@ -71,7 +71,7 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     self.textView.frame = [self calculateTextFrame];
-    self.emojiButton.frame = CGRectMake(KooEmojiBtnLeftSpace, self.textView.bottom - KooEmojiBtnWH + KooEmojiBtnSpace, KooEmojiBtnWH, KooEmojiBtnWH);
+    self.emojiButton.frame = CGRectMake(MEmojiBtnLeftSpace, self.textView.bottom - MEmojiBtnWH + MEmojiBtnSpace, MEmojiBtnWH, MEmojiBtnWH);
     [self refreshTextViewUI];
 }
 
@@ -80,17 +80,17 @@
 //计算整体高度
 - (CGFloat)heightWithFit{
     CGFloat textViewHeight = [self.textView.layoutManager usedRectForTextContainer:self.textView.textContainer].size.height;
-    CGFloat minHeight = [self heightWithLine:KooEmojiMinLine];
-    CGFloat maxHeight = [self heightWithLine:KooEmojiMaxLine];
+    CGFloat minHeight = [self heightWithLine:MEmojiTextMinLine];
+    CGFloat maxHeight = [self heightWithLine:MEmojiTextMaxLine];
     CGFloat calculateHeight = MIN(maxHeight, MAX(minHeight, textViewHeight));
-    CGFloat height = calculateHeight + KooTextViewTopSpace * 2;
+    CGFloat height = calculateHeight + MTextViewTopSpace * 2;
     return height;
 }
 
 //计算当前多少行的高度
 - (CGFloat)heightWithLine:(NSInteger)lineNumber{
     NSString *onelineStr = [[NSString alloc] init];
-    CGRect onelineRect = [onelineStr boundingRectWithSize:CGSizeMake(self.textView.frame.size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:KooTextViewTextFont] } context:nil];
+    CGRect onelineRect = [onelineStr boundingRectWithSize:CGSizeMake(self.textView.frame.size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:MTextViewTextFont] } context:nil];
     CGFloat heigth = lineNumber * onelineRect.size.height + (lineNumber - 1) - 3;
     //如果设置文本样式,这部分需要重新算
     return heigth;
@@ -98,15 +98,15 @@
 
 //计算textView的高度
 - (CGRect)calculateTextFrame{
-    CGFloat X = KooEmojiBtnLeftSpace + KooEmojiBtnWH + KooTextViewLeftSpace;
-    CGFloat width = self.bounds.size.width - X - KooTextViewLeftSpace;
-    CGFloat height = CGRectGetHeight(self.bounds) - 2 * KooTextViewTopSpace;
+    CGFloat X = MEmojiBtnLeftSpace + MEmojiBtnWH + MTextViewLeftSpace;
+    CGFloat width = self.bounds.size.width - X - MTextViewLeftSpace;
+    CGFloat height = CGRectGetHeight(self.bounds) - 2 * MTextViewTopSpace;
     if (self.isShowKeyboard) {
-        return CGRectMake(X, KooTextViewTopSpace, width, height);
+        return CGRectMake(X, MTextViewTopSpace, width, height);
     }else{
-        CGFloat textViewHeight = [self heightWithFit] - KooTextViewTopSpace * 2;
+        CGFloat textViewHeight = [self heightWithFit] - MTextViewTopSpace * 2;
         CGFloat space = (CGRectGetHeight(self.bounds) - textViewHeight)/2;
-        self.emojiButton.frame = CGRectMake(KooEmojiBtnLeftSpace, space, KooEmojiBtnWH, KooEmojiBtnWH);
+        self.emojiButton.frame = CGRectMake(MEmojiBtnLeftSpace, space, MEmojiBtnWH, MEmojiBtnWH);
         return CGRectMake(X, space, width, textViewHeight);
     }
     
@@ -114,7 +114,7 @@
 
 - (void)refreshTextViewUI{
     if (!self.textView.text.length) {
-        self.textView.font = [UIFont systemFontOfSize:KooTextViewTextFont];
+        self.textView.font = [UIFont systemFontOfSize:MTextViewTextFont];
         return;
     }
     UITextRange *markedTextRange = [self.textView markedTextRange];
@@ -127,7 +127,7 @@
     
     NSMutableAttributedString *attributedComment = [[NSMutableAttributedString alloc]initWithAttributedString:self.textView.attributedText];
     //避免输入中括号文字变小
-    [attributedComment addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:KooTextViewTextFont] range:NSMakeRange(0, attributedComment.length)];
+    [attributedComment addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:MTextViewTextFont] range:NSMakeRange(0, attributedComment.length)];
     NSUInteger offset = self.textView.attributedText.length - attributedComment.length;
     self.textView.attributedText = attributedComment;
     self.textView.selectedRange = NSMakeRange(selectedRange.location - offset, 0);
@@ -220,7 +220,7 @@
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
     self.keepsPreModeTextViewWillEdited = NO;
-    [self changeKeyboardTo:KeyboardTypeSystem];
+    
     return YES;
 }
 
@@ -334,7 +334,7 @@
     if (!_textView) {
         _textView = [[MTextView alloc]initWithFrame:self.bounds];
         _textView.delegate = self;
-        _textView.font = [UIFont systemFontOfSize:KooTextViewTextFont];
+        _textView.font = [UIFont systemFontOfSize:MTextViewTextFont];
         _textView.scrollsToTop = NO;
         _textView.returnKeyType = UIReturnKeySend;
         _textView.clipsToBounds = YES;

@@ -11,7 +11,7 @@
 #import "MEmojiIndicatorButton.h"
 #import "MEmojiPageScrollView.h"
 #import "MEmojiPackageModel.h"
-@interface MEmojiKeyboardView ()
+@interface MEmojiKeyboardView ()<MEmojiPageScrollViewDelegate>
 
 /** 表情包数据*/
 @property (nonatomic, strong) NSArray<MEmojiPackageModel *> *emojiPacks;
@@ -78,21 +78,23 @@
     [self addSubview:line];
     line.backgroundColor = MColorForRGB(211, 211, 211);
     //emoji图
-    
-    self.emojiScrollView.frame = CGRectMake(0, KooStickerTopSpace, CGRectGetWidth(self.bounds), KooStickerScrollerHeight);
+    self.emojiScrollView.changeFrame = YES;
+    CGRect frame = CGRectMake(0, MStickerTopSpace, CGRectGetWidth(self.bounds), MStickerScrollerHeight);
+    self.emojiScrollView.frame = frame;
+    [self.emojiScrollView configFrame:frame];
+    self.emojiScrollView.changeFrame = NO;
     //页码
-    self.pageControl.frame = CGRectMake(0, CGRectGetMaxY(self.emojiScrollView.frame) + KooStickerControlPageTopSpace, CGRectGetWidth(self.bounds), KooStickerControlPageHeight);
+    self.pageControl.frame = CGRectMake(0, CGRectGetMaxY(self.emojiScrollView.frame) + MStickerControlPageTopSpace, CGRectGetWidth(self.bounds), MStickerControlPageHeight);
     
     //底部视图
-    self.bottomGackgroundView.frame = CGRectMake(0,CGRectGetHeight(self.bounds) - KooStickerSenderBtnHeight - SAFEAREAINSETS(self).bottom, CGRectGetWidth(self.frame), KooStickerSenderBtnHeight + SAFEAREAINSETS(self).bottom);
+    self.bottomGackgroundView.frame = CGRectMake(0,CGRectGetHeight(self.bounds) - MStickerSenderBtnHeight - SAFEAREAINSETS(self).bottom, CGRectGetWidth(self.frame), MStickerSenderBtnHeight + SAFEAREAINSETS(self).bottom);
     
     //底部emoji包
-    self.bottomScrollView.frame = CGRectMake(0,0,  CGRectGetWidth(self.bounds) - KooStickerSenderBtnWidth, KooStickerSenderBtnHeight);
+    self.bottomScrollView.frame = CGRectMake(0,0,  CGRectGetWidth(self.bounds) - MStickerSenderBtnWidth, MStickerSenderBtnHeight);
     //加载emoji包图片
     
     //发送按钮
-    self.sendButton.frame = CGRectMake(CGRectGetWidth(self.bounds) - KooStickerSenderBtnWidth, 0, KooStickerSenderBtnWidth, KooStickerSenderBtnHeight);
-    
+    self.sendButton.frame = CGRectMake(CGRectGetWidth(self.bounds) - MStickerSenderBtnWidth, 0, MStickerSenderBtnWidth, MStickerSenderBtnHeight);
     
 }
 
@@ -104,7 +106,7 @@
     if (@available(iOS 11.0, *)) {
         bottomInset = UIApplication.sharedApplication.delegate.window.safeAreaInsets.bottom;
     }
-    CGFloat height = bottomInset + KooStickerTopSpace + KooStickerScrollerHeight + KooStickerControlPageTopSpace + KooStickerControlPageTopSpace + KooStickerControlPageHeight + KooStickerControlPageBottomSpace + KooStickerSenderBtnHeight;
+    CGFloat height = bottomInset + MStickerTopSpace + MStickerScrollerHeight + MStickerControlPageTopSpace + MStickerControlPageTopSpace + MStickerControlPageHeight + MStickerControlPageBottomSpace + MStickerSenderBtnHeight;
     return height;
     
 }
@@ -120,8 +122,23 @@
         return;
     }
     self.currentIndex = toIndex;
+    [self.emojiScrollView showEmojiWithPackModel:packModel];
+}
+
+#pragma mark - MEmojiPageScrollView 代理
+
+- (void)configIndicatorIndex:(NSInteger)indexl{
+    self.pageControl.currentPage = indexl;
+}
+
+- (void)configPageControlTotleCount:(NSInteger)totle{
+    self.pageControl.numberOfPages = totle;
+}
+
+- (void)didClickEmojiModel:(MEmojiModel *)emojiModel{
     
 }
+
 
 #pragma mark - 响应方法
 
@@ -136,7 +153,8 @@
 -(MEmojiPageScrollView *)emojiScrollView{
     if (!_emojiScrollView) {
         _emojiScrollView = [[MEmojiPageScrollView alloc]init];
-        _emojiScrollView.alwaysBounceHorizontal = NO;//取消回弹
+       
+        _emojiScrollView.pageDelegate = self;
         
     }
     return _emojiScrollView;
@@ -148,7 +166,6 @@
         _pageControl.hidesForSinglePage = YES;
         _pageControl.currentPageIndicatorTintColor = MColorForRGB(245, 166, 35);
         _pageControl.pageIndicatorTintColor = MColorForRGB(188, 188, 188);
-        _pageControl.numberOfPages = 3;
         _pageControl.defersCurrentPageDisplay = YES;
     }
     return _pageControl;

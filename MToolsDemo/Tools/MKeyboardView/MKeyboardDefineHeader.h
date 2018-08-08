@@ -36,22 +36,28 @@ typedef NS_ENUM(NSUInteger, EmojiScrollDirection) {
 };
 
 
-static CGFloat KooTextViewTopSpace = 7.0;//textView距顶间距
-static CGFloat KooTextViewLeftSpace = 10.0;//textView距左间距
-static CGFloat KooEmojiBtnWH = 40.0;//emoji按钮宽高
-static CGFloat KooEmojiBtnLeftSpace = 10.0;//emoji按钮距左间距
-static CGFloat KooEmojiBtnSpace = 5.0;//emoji按钮间距
-static NSInteger KooEmojiMaxLine = 3;//
-static NSInteger KooEmojiMinLine = 2;//最大与最小行计算
-static CGFloat KooTextViewTextFont = 16;//字号大小
+static CGFloat MTextViewTopSpace = 7.0;//textView距顶间距
+static CGFloat MTextViewLeftSpace = 10.0;//textView距左间距
+static CGFloat MEmojiBtnWH = 40.0;//emoji按钮宽高
+static CGFloat MEmojiBtnLeftSpace = 10.0;//emoji按钮距左间距
+static CGFloat MEmojiBtnSpace = 5.0;//emoji按钮间距
+static NSInteger MEmojiTextMaxLine = 3;//
+static NSInteger MEmojiTextMinLine = 2;//最大与最小行计算
+static CGFloat MTextViewTextFont = 16;//字号大小
 
-static CGFloat KooStickerTopSpace = 12.0;//顶部间距
-static CGFloat KooStickerScrollerHeight = 132.0;//滚动高度
-static CGFloat KooStickerControlPageTopSpace = 10.0;//页码顶部间距
-static CGFloat KooStickerControlPageHeight = 7.0;//页码控件大小
-static CGFloat KooStickerControlPageBottomSpace = 6.0;//页码底部间距
-static CGFloat KooStickerSenderBtnWidth = 55.0;//发送按钮宽
-static CGFloat KooStickerSenderBtnHeight = 44.0;//发送按钮高
+static CGFloat MStickerTopSpace = 12.0;//顶部间距
+static CGFloat MStickerScrollerHeight = 132.0;//滚动高度
+static CGFloat MStickerControlPageTopSpace = 10.0;//页码顶部间距
+static CGFloat MStickerControlPageHeight = 7.0;//页码控件大小
+static CGFloat MStickerControlPageBottomSpace = 6.0;//页码底部间距
+static CGFloat MStickerSenderBtnWidth = 55.0;//发送按钮宽
+static CGFloat MStickerSenderBtnHeight = 44.0;//发送按钮高
+
+static NSInteger MEmojiPageMaxLine = 3;//最多三行
+
+static CGFloat MEmojiButtonWH  = 32.0;//一个 emoji button 的大小
+static CGFloat MEmojiButtonVerticalMargin = 16.0;//上下间距
+
 
 #define MColorForRGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 

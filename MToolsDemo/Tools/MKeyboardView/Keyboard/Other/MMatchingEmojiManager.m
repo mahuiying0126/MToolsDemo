@@ -49,7 +49,7 @@ static MMatchingEmojiManager *_manager = nil;
         //表情包名
         MEmojiPackageModel *package = [[MEmojiPackageModel alloc]init];
         package.emojiPackageName = packInfo[@"packagename"];
-        //表情包emoji详细信息,包含KooEmojiModel
+        //表情包emoji详细信息,包含MEmojiModel
         NSMutableArray <MEmojiModel *>*emojis = [NSMutableArray array];
         NSArray *emojiArray = packInfo[@"emoticons"];
         for (NSDictionary *emojiDict in emojiArray) {
@@ -58,6 +58,7 @@ static MMatchingEmojiManager *_manager = nil;
             emojiModel.emojiDescription = emojiDict[@"desc"];
             [emojis addObject:emojiModel];
         }
+         
         package.emojis = emojis;
         [packageEmoji addObject:package];
     }
