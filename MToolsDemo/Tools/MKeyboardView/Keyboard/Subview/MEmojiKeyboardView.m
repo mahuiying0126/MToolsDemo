@@ -10,10 +10,11 @@
 #import "MKeyboardDefineHeader.h"
 #import "MEmojiIndicatorButton.h"
 #import "MEmojiPageScrollView.h"
+#import "MEmojiPackageModel.h"
 @interface MEmojiKeyboardView ()
 
 /** 表情包数据*/
-@property (nonatomic, strong) NSArray<MEmojiPackage *> *emojiPacks;
+@property (nonatomic, strong) NSArray<MEmojiPackageModel *> *emojiPacks;
 /** page指示器*/
 @property (nonatomic, strong) UIPageControl *pageControl;
 /** 发送按钮*/
@@ -111,7 +112,15 @@
 #pragma mark - 选择哪个表情包
 
 - (void)changeStickerToIndex:(NSUInteger)toIndex{
+    if (toIndex >= self.emojiPacks.count) {
+        return;
+    }
+    MEmojiPackageModel *packModel = [self.emojiPacks objectAtIndex:toIndex];
+    if (!packModel) {
+        return;
+    }
     self.currentIndex = toIndex;
+    
 }
 
 #pragma mark - 响应方法

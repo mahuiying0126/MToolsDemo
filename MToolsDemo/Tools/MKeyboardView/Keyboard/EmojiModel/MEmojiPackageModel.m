@@ -6,9 +6,9 @@
 //  Copyright © 2018年 magic. All rights reserved.
 //
 
-#import "MEmojiPackage.h"
+#import "MEmojiPackageModel.h"
 
-@implementation MEmojiPackage
+@implementation MEmojiPackageModel
 
 @end
 

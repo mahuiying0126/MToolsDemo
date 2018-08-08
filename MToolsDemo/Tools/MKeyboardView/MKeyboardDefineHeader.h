@@ -29,6 +29,12 @@ typedef NS_ENUM(NSUInteger, EmojiIndicatorType) {
     EmojiIndicatorBoths//两边
 };
 
+typedef NS_ENUM(NSUInteger, EmojiScrollDirection) {
+    EmojiScrollLeft = 0,
+    EmojiScrollMid = 1,
+    EmojiScrollRight = 2,
+};
+
 
 static CGFloat KooTextViewTopSpace = 7.0;//textView距顶间距
 static CGFloat KooTextViewLeftSpace = 10.0;//textView距左间距

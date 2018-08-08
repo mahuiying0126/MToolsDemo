@@ -7,6 +7,18 @@
 //
 
 #import "MEmojiPageScrollView.h"
+#import "MKeyboardDefineHeader.h"
+@interface MEmojiPageScrollView ()
+
+/** 表情包*/
+@property (nonatomic, strong) MEmojiPackageModel *packModel;
+@property (nonatomic, assign) NSInteger middlePage;
+@property (nonatomic, assign) NSInteger leftPage;
+@property (nonatomic, assign) NSInteger rightPage;
+/**size改变后,scroll展示哪一页*/
+@property (nonatomic, assign) EmojiScrollDirection scrollDirection;
+
+@end
 
 @implementation MEmojiPageScrollView
 
@@ -20,6 +32,12 @@
         self.backgroundColor = [UIColor redColor];
     }
     return self;
+}
+
+
+- (void)showEmojiWithPackModel:(MEmojiPackageModel *)packModel{
+    self.packModel = packModel;
+    
 }
 
 @end

@@ -37,7 +37,7 @@
 		C6A29388211972BE00EF1F5E /* MTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A29387211972BD00EF1F5E /* MTextView.m */; };
 		C6A2938B21197BCD00EF1F5E /* MKeyboardBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C6A2938A21197BCD00EF1F5E /* MKeyboardBundle.bundle */; };
 		C6A2938E21197C2D00EF1F5E /* UIImage+MKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2938D21197C2D00EF1F5E /* UIImage+MKeyboard.m */; };
-		C6A2939221198A7700EF1F5E /* MEmojiPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2939121198A7700EF1F5E /* MEmojiPackage.m */; };
+		C6A2939221198A7700EF1F5E /* MEmojiPackageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2939121198A7700EF1F5E /* MEmojiPackageModel.m */; };
 		C6A2939821199A8F00EF1F5E /* MMatchingEmojiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2939721199A8F00EF1F5E /* MMatchingEmojiManager.m */; };
 		C6A2939B21199D5900EF1F5E /* MEmojiKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A2939A21199D5900EF1F5E /* MEmojiKeyboardView.m */; };
 		C6A293A62119AB5F00EF1F5E /* MEmojiIndicatorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A293A52119AB5F00EF1F5E /* MEmojiIndicatorButton.m */; };
@@ -104,8 +104,8 @@
 		C6A2938A21197BCD00EF1F5E /* MKeyboardBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MKeyboardBundle.bundle; sourceTree = "<group>"; };
 		C6A2938C21197C2D00EF1F5E /* UIImage+MKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+MKeyboard.h"; sourceTree = "<group>"; };
 		C6A2938D21197C2D00EF1F5E /* UIImage+MKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MKeyboard.m"; sourceTree = "<group>"; };
-		C6A2939021198A7700EF1F5E /* MEmojiPackage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEmojiPackage.h; sourceTree = "<group>"; };
-		C6A2939121198A7700EF1F5E /* MEmojiPackage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEmojiPackage.m; sourceTree = "<group>"; };
+		C6A2939021198A7700EF1F5E /* MEmojiPackageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEmojiPackageModel.h; sourceTree = "<group>"; };
+		C6A2939121198A7700EF1F5E /* MEmojiPackageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEmojiPackageModel.m; sourceTree = "<group>"; };
 		C6A2939621199A8F00EF1F5E /* MMatchingEmojiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMatchingEmojiManager.h; sourceTree = "<group>"; };
 		C6A2939721199A8F00EF1F5E /* MMatchingEmojiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMatchingEmojiManager.m; sourceTree = "<group>"; };
 		C6A2939921199D5900EF1F5E /* MEmojiKeyboardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEmojiKeyboardView.h; sourceTree = "<group>"; };
@@ -348,8 +348,8 @@
 		C6A2938F21198A5D00EF1F5E /* EmojiModel */ = {
 			isa = PBXGroup;
 			children = (
-				C6A2939021198A7700EF1F5E /* MEmojiPackage.h */,
-				C6A2939121198A7700EF1F5E /* MEmojiPackage.m */,
+				C6A2939021198A7700EF1F5E /* MEmojiPackageModel.h */,
+				C6A2939121198A7700EF1F5E /* MEmojiPackageModel.m */,
 			);
 			path = EmojiModel;
 			sourceTree = "<group>";
@@ -486,7 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6A293672111C83900EF1F5E /* MEasyShowLabel.m in Sources */,
-				C6A2939221198A7700EF1F5E /* MEmojiPackage.m in Sources */,
+				C6A2939221198A7700EF1F5E /* MEmojiPackageModel.m in Sources */,
 				C6A2939821199A8F00EF1F5E /* MMatchingEmojiManager.m in Sources */,
 				C68F2402210EF73B00ADE1B4 /* NSString+MSliderButton.m in Sources */,
 				C68F23F5210EAE3C00ADE1B4 /* MSliderProgressView.m in Sources */,

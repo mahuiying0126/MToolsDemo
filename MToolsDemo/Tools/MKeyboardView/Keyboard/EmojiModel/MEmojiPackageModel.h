@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class MEmojiModel;
-@interface MEmojiPackage : NSObject
+@interface MEmojiPackageModel : NSObject
 
 /** 表情包的名字*/
 @property (nonatomic, strong) NSString *emojiPackageName;

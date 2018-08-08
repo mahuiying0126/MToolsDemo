@@ -11,7 +11,7 @@
 @interface MMatchingEmojiManager ()
 
 /** 所有的表情包*/
-@property (nonatomic, strong) NSArray<MEmojiPackage *> *allEmojiPackages;
+@property (nonatomic, strong) NSArray<MEmojiPackageModel *> *allEmojiPackages;
 
 @end
 
@@ -39,15 +39,15 @@ static MMatchingEmojiManager *_manager = nil;
     NSBundle *bundle =  [NSBundle bundleForClass:[NSClassFromString(@"MKeyboardInputView") class]];
     NSURL *url = [bundle URLForResource:@"MKeyboardBundle" withExtension:@"bundle"];
     NSBundle *imageBundle = [NSBundle bundleWithURL:url];
-    NSString *path = [imageBundle pathForResource:@"KooEmojiInfo" ofType:@"plist"];
+    NSString *path = [imageBundle pathForResource:@"KeyboardEmojiInfo" ofType:@"plist"];
     if (!path) {
         return;
     }
     NSArray *array = [[NSArray alloc]initWithContentsOfFile:path];
-    NSMutableArray <MEmojiPackage *> *packageEmoji = [NSMutableArray array];
+    NSMutableArray <MEmojiPackageModel *> *packageEmoji = [NSMutableArray array];
     for (NSDictionary *packInfo in array) {
         //表情包名
-        MEmojiPackage *package = [[MEmojiPackage alloc]init];
+        MEmojiPackageModel *package = [[MEmojiPackageModel alloc]init];
         package.emojiPackageName = packInfo[@"packagename"];
         //表情包emoji详细信息,包含KooEmojiModel
         NSMutableArray <MEmojiModel *>*emojis = [NSMutableArray array];

@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MEmojiPackage.h"
+#import "MEmojiPackageModel.h"
 @interface MMatchingEmojiManager : NSObject
 
 + (instancetype)shareEmojiManager;
 
 /** 所有的表情包*/
-@property (nonatomic, strong,readonly) NSArray<MEmojiPackage *> *allEmojiPackages;
+@property (nonatomic, strong,readonly) NSArray<MEmojiPackageModel *> *allEmojiPackages;
 
 @end

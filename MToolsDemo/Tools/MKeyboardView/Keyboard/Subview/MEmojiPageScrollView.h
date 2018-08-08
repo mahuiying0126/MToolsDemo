@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MEmojiPackageModel.h"
 @interface MEmojiPageScrollView : UIScrollView
+
+- (void)showEmojiWithPackModel:(MEmojiPackageModel *)packModel;
 
 @end
