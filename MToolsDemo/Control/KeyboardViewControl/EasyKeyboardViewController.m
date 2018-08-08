@@ -8,10 +8,13 @@
 
 #import "EasyKeyboardViewController.h"
 #import "MReplyCommentView.h"
-#import "MKeyboardInputView.h"
-@interface EasyKeyboardViewController ()<MKeyboardInputViewDelegate>
 
-@property (nonatomic, strong) MKeyboardInputView *keyboardView;
+@interface EasyKeyboardViewController ()
+
+/** *按钮*/
+@property (nonatomic, strong) UIButton *rightButton;
+/** 评论键盘*/
+@property (nonatomic, strong) MReplyCommentView *replyView;
 
 @end
 
@@ -21,32 +24,47 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    UIButton *right = [self createButtonForTitle:@"弹出键盘"];
+    [right addTarget:self action:@selector(selectInputBoard) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:right];
     
     
-    CGFloat maxHeigh = [UIScreen mainScreen].bounds.size.height - 64;
-    CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width;
-    self.keyboardView = [[MKeyboardInputView alloc]init];
-    self.keyboardView.delgate = self;
-    CGFloat fitHeiht = [self.keyboardView heightWithFit];
-    CGRect frame = CGRectMake(0, maxHeigh - fitHeiht, maxWidth, fitHeiht);
-    self.keyboardView.frame = frame;
-    self.keyboardView.initFrame = frame;
-    [self.view addSubview:self.keyboardView];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    
+    [self.replyView close];
     
 }
 
-- (void)keyboardInputViewDidSendButton:(MKeyboardInputView *)inputView{
-    NSLog(@"%@",inputView.plaintext);
-    [inputView clearTextAndHidden];
+-(void)selectInputBoard{
+    [self.replyView showKeyboardType:UIKeyboardTypeDefault content:@"评论" Block:^(NSString *contentStr) {
+        NSLog(@"%@",contentStr);
+    }];
+}
+
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.replyView willHidden];
 }
 
 
 
+-(UIButton *)createButtonForTitle:(NSString *)title{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, 40, 25);
+    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    [button setTitle:title forState:0];
+    [button setTitleColor:[UIColor whiteColor] forState:0];
+    return button;
+}
+
+-(MReplyCommentView *)replyView{
+    if (!_replyView) {
+        _replyView = [MReplyCommentView new];
+        
+    }
+    return _replyView;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

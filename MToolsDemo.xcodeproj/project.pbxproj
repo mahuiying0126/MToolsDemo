@@ -46,6 +46,7 @@
 		C6A293BA211AF04100EF1F5E /* NSAttributedString+EmojiTag.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A293B9211AF04100EF1F5E /* NSAttributedString+EmojiTag.m */; };
 		C6A293BD211AFA9E00EF1F5E /* MEmojiIndictorPackView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A293BC211AFA9E00EF1F5E /* MEmojiIndictorPackView.m */; };
 		C6A293C9211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A293C8211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.m */; };
+		C6A293CC211B0C3400EF1F5E /* EmojiKeyBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A293CB211B0C3400EF1F5E /* EmojiKeyBoardViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +126,8 @@
 		C6A293BC211AFA9E00EF1F5E /* MEmojiIndictorPackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEmojiIndictorPackView.m; sourceTree = "<group>"; };
 		C6A293C7211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEmojiIndicatorCollectionViewCell.h; sourceTree = "<group>"; };
 		C6A293C8211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEmojiIndicatorCollectionViewCell.m; sourceTree = "<group>"; };
+		C6A293CA211B0C3400EF1F5E /* EmojiKeyBoardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmojiKeyBoardViewController.h; sourceTree = "<group>"; };
+		C6A293CB211B0C3400EF1F5E /* EmojiKeyBoardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmojiKeyBoardViewController.m; sourceTree = "<group>"; };
 		E47FD7B1FB8FD3D38F15D962 /* Pods-MToolsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MToolsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MToolsDemo/Pods-MToolsDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -328,6 +331,8 @@
 			children = (
 				C6A2937B21192EAA00EF1F5E /* EasyKeyboardViewController.h */,
 				C6A2937C21192EAA00EF1F5E /* EasyKeyboardViewController.m */,
+				C6A293CA211B0C3400EF1F5E /* EmojiKeyBoardViewController.h */,
+				C6A293CB211B0C3400EF1F5E /* EmojiKeyBoardViewController.m */,
 			);
 			path = KeyboardViewControl;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 				C68F244921103DF100ADE1B4 /* GKShowEasyViewHUD.m in Sources */,
 				C6A2937921192E0700EF1F5E /* MReplyCommentView.m in Sources */,
 				C68F244621103D9A00ADE1B4 /* UIView+EasyShow.m in Sources */,
+				C6A293CC211B0C3400EF1F5E /* EmojiKeyBoardViewController.m in Sources */,
 				C6A293642111AE8A00EF1F5E /* UIView+Loading.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
