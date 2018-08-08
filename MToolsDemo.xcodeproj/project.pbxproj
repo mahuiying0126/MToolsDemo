@@ -43,6 +43,9 @@
 		C6A293A62119AB5F00EF1F5E /* MEmojiIndicatorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A293A52119AB5F00EF1F5E /* MEmojiIndicatorButton.m */; };
 		C6A293A92119AD7800EF1F5E /* MEmojiPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A293A82119AD7800EF1F5E /* MEmojiPageScrollView.m */; };
 		C6A293AF2119B94600EF1F5E /* MEmojiPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A293AE2119B94600EF1F5E /* MEmojiPageView.m */; };
+		C6A293BA211AF04100EF1F5E /* NSAttributedString+EmojiTag.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A293B9211AF04100EF1F5E /* NSAttributedString+EmojiTag.m */; };
+		C6A293BD211AFA9E00EF1F5E /* MEmojiIndictorPackView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A293BC211AFA9E00EF1F5E /* MEmojiIndictorPackView.m */; };
+		C6A293C9211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A293C8211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +119,12 @@
 		C6A293A82119AD7800EF1F5E /* MEmojiPageScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEmojiPageScrollView.m; sourceTree = "<group>"; };
 		C6A293AD2119B94600EF1F5E /* MEmojiPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEmojiPageView.h; sourceTree = "<group>"; };
 		C6A293AE2119B94600EF1F5E /* MEmojiPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEmojiPageView.m; sourceTree = "<group>"; };
+		C6A293B8211AF04100EF1F5E /* NSAttributedString+EmojiTag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+EmojiTag.h"; sourceTree = "<group>"; };
+		C6A293B9211AF04100EF1F5E /* NSAttributedString+EmojiTag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+EmojiTag.m"; sourceTree = "<group>"; };
+		C6A293BB211AFA9E00EF1F5E /* MEmojiIndictorPackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEmojiIndictorPackView.h; sourceTree = "<group>"; };
+		C6A293BC211AFA9E00EF1F5E /* MEmojiIndictorPackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEmojiIndictorPackView.m; sourceTree = "<group>"; };
+		C6A293C7211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEmojiIndicatorCollectionViewCell.h; sourceTree = "<group>"; };
+		C6A293C8211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEmojiIndicatorCollectionViewCell.m; sourceTree = "<group>"; };
 		E47FD7B1FB8FD3D38F15D962 /* Pods-MToolsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MToolsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MToolsDemo/Pods-MToolsDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -361,6 +370,8 @@
 				C6A2938D21197C2D00EF1F5E /* UIImage+MKeyboard.m */,
 				C6A293822119347A00EF1F5E /* UIView+MKeyboard.h */,
 				C6A293832119347A00EF1F5E /* UIView+MKeyboard.m */,
+				C6A293B8211AF04100EF1F5E /* NSAttributedString+EmojiTag.h */,
+				C6A293B9211AF04100EF1F5E /* NSAttributedString+EmojiTag.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -378,6 +389,10 @@
 				C6A293A82119AD7800EF1F5E /* MEmojiPageScrollView.m */,
 				C6A293AD2119B94600EF1F5E /* MEmojiPageView.h */,
 				C6A293AE2119B94600EF1F5E /* MEmojiPageView.m */,
+				C6A293BB211AFA9E00EF1F5E /* MEmojiIndictorPackView.h */,
+				C6A293BC211AFA9E00EF1F5E /* MEmojiIndictorPackView.m */,
+				C6A293C7211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.h */,
+				C6A293C8211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.m */,
 			);
 			path = Subview;
 			sourceTree = "<group>";
@@ -488,8 +503,11 @@
 				C6A293672111C83900EF1F5E /* MEasyShowLabel.m in Sources */,
 				C6A2939221198A7700EF1F5E /* MEmojiPackageModel.m in Sources */,
 				C6A2939821199A8F00EF1F5E /* MMatchingEmojiManager.m in Sources */,
+				C6A293BA211AF04100EF1F5E /* NSAttributedString+EmojiTag.m in Sources */,
 				C68F2402210EF73B00ADE1B4 /* NSString+MSliderButton.m in Sources */,
+				C6A293C9211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.m in Sources */,
 				C68F23F5210EAE3C00ADE1B4 /* MSliderProgressView.m in Sources */,
+				C6A293BD211AFA9E00EF1F5E /* MEmojiIndictorPackView.m in Sources */,
 				C6A2937D21192EAA00EF1F5E /* EasyKeyboardViewController.m in Sources */,
 				C68F23F8210EAE6900ADE1B4 /* UIView+MSlider.m in Sources */,
 				C68F24542110493B00ADE1B4 /* MLoadingOptions.m in Sources */,

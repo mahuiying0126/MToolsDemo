@@ -196,6 +196,12 @@ static NSInteger pageMax = 3;
     }
 }
 
+- (void)didClickDeleteButton{
+    if (self.pageDelegate && [self.pageDelegate respondsToSelector:@selector(didClickDeleteButton)]) {
+        [self.pageDelegate didClickDeleteButton];
+    }
+}
+
 #pragma mark - 更改 pageView 的 frame
 
 - (void)changeEmojiPageViewFrame{

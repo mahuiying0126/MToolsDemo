@@ -44,6 +44,7 @@ static MMatchingEmojiManager *_manager = nil;
         return;
     }
     NSArray *array = [[NSArray alloc]initWithContentsOfFile:path];
+     
     NSMutableArray <MEmojiPackageModel *> *packageEmoji = [NSMutableArray array];
     for (NSDictionary *packInfo in array) {
         //表情包名

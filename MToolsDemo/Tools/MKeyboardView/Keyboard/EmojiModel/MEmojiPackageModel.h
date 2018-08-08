@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSString *emojiPackageName;
 /** 表情包包含的内容*/
 @property (nonatomic, strong) NSArray<MEmojiModel *> *emojis;
+/** 是否被选择*/
+@property (nonatomic, assign) BOOL isSelect;
 
 @end
 

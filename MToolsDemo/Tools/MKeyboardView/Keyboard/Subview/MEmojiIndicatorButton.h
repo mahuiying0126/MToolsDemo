@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MKeyboardDefineHeader.h"
+
 @interface MEmojiIndicatorButton : UIButton
 
 /** 指示器样式*/

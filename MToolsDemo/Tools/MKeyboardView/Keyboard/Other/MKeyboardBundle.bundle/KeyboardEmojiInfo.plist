@@ -4,206 +4,69 @@
 <array>
 	<dict>
 		<key>packagename</key>
-		<string>default</string>
+		<string>baibai</string>
 		<key>emoticons</key>
 		<array>
 			<dict>
 				<key>image</key>
-				<string>wink</string>
+				<string>baibai</string>
 				<key>desc</key>
-				<string>wink</string>
+				<string>baibai</string>
 			</dict>
 			<dict>
 				<key>image</key>
-				<string>sleepy</string>
+				<string>beishang</string>
 				<key>desc</key>
-				<string>sleepy</string>
+				<string>beishang</string>
 			</dict>
 			<dict>
 				<key>image</key>
-				<string>smile</string>
+				<string>bingbujiandan</string>
 				<key>desc</key>
-				<string>smile</string>
+				<string>bingbujiandan</string>
 			</dict>
 			<dict>
 				<key>image</key>
-				<string>surprised</string>
+				<string>bizui</string>
 				<key>desc</key>
-				<string>surprised</string>
+				<string>bizui</string>
 			</dict>
 			<dict>
 				<key>image</key>
-				<string>thumbs_up</string>
+				<string>chanzui</string>
 				<key>desc</key>
-				<string>thumbs_up</string>
+				<string>chanzui</string>
 			</dict>
 			<dict>
 				<key>image</key>
-				<string>twisted</string>
+				<string>doge</string>
 				<key>desc</key>
-				<string>twisted</string>
+				<string>doge</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>packagename</key>
+		<string>doge</string>
+		<key>emoticons</key>
+		<array>
+			<dict>
+				<key>image</key>
+				<string>dahaqi</string>
+				<key>desc</key>
+				<string>dahaqi</string>
 			</dict>
 			<dict>
 				<key>image</key>
-				<string>angel</string>
+				<string>dalian</string>
 				<key>desc</key>
-				<string>angel</string>
+				<string>dalian</string>
 			</dict>
 			<dict>
 				<key>image</key>
-				<string>angry</string>
+				<string>ding</string>
 				<key>desc</key>
-				<string>angry</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>cheeky</string>
-				<key>desc</key>
-				<string>cheeky</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>confused</string>
-				<key>desc</key>
-				<string>confused</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>cool</string>
-				<key>desc</key>
-				<string>cool</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>cry</string>
-				<key>desc</key>
-				<string>cry</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>drool</string>
-				<key>desc</key>
-				<string>drool</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>eek</string>
-				<key>desc</key>
-				<string>eek</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>embarrassed</string>
-				<key>desc</key>
-				<string>embarrassed</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>evil</string>
-				<key>desc</key>
-				<string>evil</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>exclaim</string>
-				<key>desc</key>
-				<string>exclaim</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>grin</string>
-				<key>desc</key>
-				<string>grin</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>idea</string>
-				<key>desc</key>
-				<string>idea</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>joy</string>
-				<key>desc</key>
-				<string>joy</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>laugh</string>
-				<key>desc</key>
-				<string>laugh</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>lips_sealed</string>
-				<key>desc</key>
-				<string>lips_sealed</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>love</string>
-				<key>desc</key>
-				<string>love</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>mad</string>
-				<key>desc</key>
-				<string>mad</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>mr_green</string>
-				<key>desc</key>
-				<string>mr_green</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>neutral</string>
-				<key>desc</key>
-				<string>neutral</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>old_school</string>
-				<key>desc</key>
-				<string>old_school</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>oops</string>
-				<key>desc</key>
-				<string>oops</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>ouch</string>
-				<key>desc</key>
-				<string>ouch</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>question</string>
-				<key>desc</key>
-				<string>question</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>roll_eyes</string>
-				<key>desc</key>
-				<string>roll_eyes</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>sad</string>
-				<key>desc</key>
-				<string>sad</string>
-			</dict>
-			<dict>
-				<key>image</key>
-				<string>sleepy</string>
-				<key>desc</key>
-				<string>sleepy</string>
+				<string>ding</string>
 			</dict>
 		</array>
 	</dict>

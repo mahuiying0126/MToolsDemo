@@ -9,9 +9,10 @@
 #import "MKeyboardInputView.h"
 #import "MTextView.h"
 #import "MEmojiKeyboardView.h"
+#import "NSAttributedString+EmojiTag.h"
 #import "MKeyboardDefineHeader.h"
 
-@interface MKeyboardInputView ()<UITextViewDelegate>
+@interface MKeyboardInputView ()<UITextViewDelegate,MEmojiKeyboardViewDelegate>
 
 //三个控件,分别是: 输入框,切换表情按钮,表情页面
 /** 输入框*/
@@ -73,6 +74,30 @@
     self.textView.frame = [self calculateTextFrame];
     self.emojiButton.frame = CGRectMake(MEmojiBtnLeftSpace, self.textView.bottom - MEmojiBtnWH + MEmojiBtnSpace, MEmojiBtnWH, MEmojiBtnWH);
     [self refreshTextViewUI];
+}
+
+#pragma mark - 公开方法
+
+- (NSString *)plaintext{
+    return [self.textView.attributedText exchangePlainText];
+}
+
+- (NSAttributedString *)attributeText{
+    return self.textView.attributedText;
+}
+
+- (void)clearText{
+    self.textView.text = nil;
+    //避免表情开头时,光标变小
+    self.textView.font = [UIFont systemFontOfSize:MTextViewTextFont];
+    [self sizeToFit];
+}
+
+- (void)clearTextAndHidden{
+    [self clearText];
+    if ([self.textView isFirstResponder]) {
+        [self.textView resignFirstResponder];
+    }
 }
 
 #pragma mark - 计算 textView高度以及 frame
@@ -226,7 +251,7 @@
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     if ([@"\n" isEqualToString:text]) {
-        
+        [self keyBoardDidSendButton];
         return NO;
     }
     return YES;
@@ -297,6 +322,64 @@
     }
 }
 
+#pragma mark - 表情键盘代理
+
+- (void)keyBoardDidClickEmojiModel:(MEmojiModel *)emojiModel{
+    if (!emojiModel) {
+        return;
+    }
+    UIImage *emojiImage = [UIImage imageWithName:emojiModel.imageName path:@"emoji"];
+    if (!emojiImage) {
+        return;
+    }
+    
+    NSRange selectedRange = self.textView.selectedRange;
+    NSString *emojiString = [NSString stringWithFormat:@"[%@]", emojiModel.emojiDescription];
+    
+    UIFont *font = [UIFont systemFontOfSize:MTextViewTextFont];
+    CGFloat emojiHeight = font.lineHeight;
+    NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+    attachment.image = emojiImage;
+    attachment.bounds = CGRectMake(0, font.descender, emojiHeight, emojiHeight);
+    NSAttributedString *attachString = [NSAttributedString attributedStringWithAttachment:attachment];
+    NSMutableAttributedString *emojiAttributedString = [[NSMutableAttributedString alloc]initWithAttributedString:attachString];
+    [emojiAttributedString addAttribute:MAddEmojiTag value:emojiString range:NSMakeRange(0, attachString.length)];
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithAttributedString:self.textView.attributedText];
+    [attributedText replaceCharactersInRange:selectedRange withAttributedString:emojiAttributedString];
+    self.textView.attributedText = attributedText;
+    self.textView.selectedRange = NSMakeRange(selectedRange.location + emojiAttributedString.length, 0);
+    
+    [self textViewDidChange:self.textView];
+}
+
+- (void)keyBoardDidClickDeleteButton{
+    NSRange selectedRange = self.textView.selectedRange;
+    if (selectedRange.location == 0 && selectedRange.length == 0) {
+        return;
+    }
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithAttributedString:self.textView.attributedText];
+    if (selectedRange.length > 0) {
+        //删字符
+        [attributedText deleteCharactersInRange:selectedRange];
+        self.textView.attributedText = attributedText;
+        self.textView.selectedRange = NSMakeRange(selectedRange.location, 0);
+    } else {
+        //删表情
+        [attributedText deleteCharactersInRange:NSMakeRange(selectedRange.location - 1, 1)];
+        self.textView.attributedText = attributedText;
+        self.textView.selectedRange = NSMakeRange(selectedRange.location - 1, 0);
+    }
+    
+    [self textViewDidChange:self.textView];
+}
+
+- (void)keyBoardDidSendButton{
+    if (self.delgate && [self.delgate respondsToSelector:@selector(keyboardInputViewDidSendButton:)]) {
+        __weak typeof(self) weakSelf = self;
+        [self.delgate keyboardInputViewDidSendButton:weakSelf];
+    }
+}
+
 #pragma mark - 私有方法
 //切换输入源
 - (void)changeKeyboardTo:(KeyboardType)keyboard{
@@ -364,6 +447,7 @@
 - (MEmojiKeyboardView *)emojiKeyboardView{
     if (!_emojiKeyboardView) {
         _emojiKeyboardView = [[MEmojiKeyboardView alloc]initWithMaxWidth:self.width];
+        _emojiKeyboardView.delegate = self;
      }
     return _emojiKeyboardView;
 }

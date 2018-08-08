@@ -58,6 +58,7 @@ static NSInteger MEmojiPageMaxLine = 3;//最多三行
 static CGFloat MEmojiButtonWH  = 32.0;//一个 emoji button 的大小
 static CGFloat MEmojiButtonVerticalMargin = 16.0;//上下间距
 
+static NSString *MAddEmojiTag = @"EmojiTextGeneralTag";
 
 #define MColorForRGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 

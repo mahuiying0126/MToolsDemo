@@ -17,6 +17,8 @@
 
 - (void)didClickEmojiModel:(MEmojiModel *)emojiModel;
 
+- (void)didClickDeleteButton;
+
 @end
 
 @interface MEmojiPageScrollView : UIScrollView

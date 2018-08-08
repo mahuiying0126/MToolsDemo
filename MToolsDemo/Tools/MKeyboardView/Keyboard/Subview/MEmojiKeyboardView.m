@@ -11,7 +11,8 @@
 #import "MEmojiIndicatorButton.h"
 #import "MEmojiPageScrollView.h"
 #import "MEmojiPackageModel.h"
-@interface MEmojiKeyboardView ()<MEmojiPageScrollViewDelegate>
+#import "MEmojiIndictorPackView.h"
+@interface MEmojiKeyboardView ()<MEmojiPageScrollViewDelegate,UIInputViewAudioFeedback,MEmojiIndictorPackViewDelegate>
 
 /** 表情包数据*/
 @property (nonatomic, strong) NSArray<MEmojiPackageModel *> *emojiPacks;
@@ -22,7 +23,7 @@
 /** 表情页面*/
 @property (nonatomic, strong) MEmojiPageScrollView *emojiScrollView;
 /** 底部滚动条*/
-@property (nonatomic, strong) UIScrollView *bottomScrollView;
+@property (nonatomic, strong) MEmojiIndictorPackView *bottomScrollView;
 /** 底部背景图*/
 @property (nonatomic, strong) UIView *bottomGackgroundView;
 /** 当前表情包下标*/
@@ -60,13 +61,16 @@
 
 - (void)addSubviews{
     
-    self.emojiPacks = [MMatchingEmojiManager shareEmojiManager].allEmojiPackages;
+    self.emojiPacks = [MMatchingEmojiManager shareEmojiManager].allEmojiPackages.mutableCopy;
     self.backgroundColor = MColorForRGB(244, 244, 244);
     [self addSubview:self.emojiScrollView];
     [self addSubview:self.pageControl];
     [self addSubview:self.bottomGackgroundView];
     [self.bottomGackgroundView addSubview:self.sendButton];
     [self.bottomGackgroundView addSubview:self.bottomScrollView];
+    MEmojiPackageModel *model = self.emojiPacks.firstObject;
+    model.isSelect = YES;
+    [self.bottomScrollView reloadFromData:self.emojiPacks];
     //默认选择第一个表情包
     [self changeStickerToIndex:0];
 }
@@ -91,7 +95,6 @@
     
     //底部emoji包
     self.bottomScrollView.frame = CGRectMake(0,0,  CGRectGetWidth(self.bounds) - MStickerSenderBtnWidth, MStickerSenderBtnHeight);
-    //加载emoji包图片
     
     //发送按钮
     self.sendButton.frame = CGRectMake(CGRectGetWidth(self.bounds) - MStickerSenderBtnWidth, 0, MStickerSenderBtnWidth, MStickerSenderBtnHeight);
@@ -136,17 +139,39 @@
 }
 
 - (void)didClickEmojiModel:(MEmojiModel *)emojiModel{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(keyBoardDidClickEmojiModel:)]) {
+        [self.delegate keyBoardDidClickEmojiModel:emojiModel];
+    }
+}
+
+- (void)didClickDeleteButton{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(keyBoardDidClickDeleteButton)]) {
+        [[UIDevice currentDevice] playInputClick];
+        [self.delegate keyBoardDidClickDeleteButton];
+    }
     
+}
+
+#pragma mark - MEmojiIndictorPackView 代理
+
+- (void)indictorPackViewDidSelect:(NSInteger )index{
+    [self changeStickerToIndex:index];
 }
 
 
 #pragma mark - 响应方法
 
 -(void)sendButtonEvent:(UIButton *)sender{
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(keyBoardDidSendButton)]) {
+        [self.delegate keyBoardDidSendButton];
+    }
 }
 
+#pragma mark - UIInputViewAudioFeedback,点击有咔哒声
 
+- (BOOL)enableInputClicksWhenVisible{
+    return YES;
+}
 
 #pragma mark - 懒加载
 
@@ -185,11 +210,12 @@
     return _sendButton;
 }
 
--(UIScrollView *)bottomScrollView{
+-(MEmojiIndictorPackView *)bottomScrollView{
     if (!_bottomScrollView) {
-        _bottomScrollView = [[UIScrollView alloc]init];
-        _bottomScrollView.showsVerticalScrollIndicator = NO;
-        _bottomScrollView.showsHorizontalScrollIndicator = NO;
+        UICollectionViewFlowLayout *flaowLayout = [[UICollectionViewFlowLayout alloc]init];
+        [flaowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+        _bottomScrollView = [[MEmojiIndictorPackView alloc]initWithFrame:CGRectZero collectionViewLayout:flaowLayout];
+        _bottomScrollView.packViewDelegate = self;
     }
     return _bottomScrollView;
 }

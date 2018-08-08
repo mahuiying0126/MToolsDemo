@@ -8,12 +8,14 @@
 
 #import "MTextView.h"
 #import <CommonCrypto/CommonDigest.h>
-
+#import "NSAttributedString+EmojiTag.h"
 @interface MTextView ()
 /** 占位 label*/
 @property (nonatomic, strong) UILabel *placeholderLabel;
-/** 粘贴复制字典*/
-@property (nonatomic, strong) NSMutableDictionary *pasteBoardDict;
+/** 粘贴复制字典
+ *设置字典存储剪切复制的文字或表情是比较节省性能的,但是,富文本的图片剪切后 tag 消失
+ */
+//@property (nonatomic, strong) NSMutableDictionary *pasteBoardDict;
 
 @end
 
@@ -41,18 +43,54 @@
 //因为涉及到自定义的表情,要么禁用功能,要么实现功能
 //剪切
 - (void)cut:(id)sender{
-    
+    NSString *string = [self.attributedText exchangePlainTextFromRange:self.selectedRange];
+    if (string.length) {
+//        NSAttributedString *attribute = [self.attributedText attributedSubstringFromRange:self.selectedRange];
+        [UIPasteboard generalPasteboard].string = string;
+//        NSString *md5String = [self stringMD5:string];
+//        [self.pasteBoardDict setObject:attribute forKey:md5String];
+        NSRange selectedRange = self.selectedRange;
+        NSMutableAttributedString *attributeContent = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedText];
+        [attributeContent replaceCharactersInRange:self.selectedRange withString:@""];
+        [attributeContent addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:16] range:NSMakeRange(0, attributeContent.length)];
+        self.attributedText = attributeContent;
+        self.selectedRange = NSMakeRange(selectedRange.location, 0);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(textViewDidChange:)]) {
+            [self.delegate textViewDidChange:self];
+        }
+    }
     
 }
 
 //拷贝
 - (void)copy:(id)sender{
-    
+    NSString *string = [self.attributedText exchangePlainTextFromRange:self.selectedRange];
+    if (string.length) {
+        [UIPasteboard generalPasteboard].string = string;
+//        NSString *md5String = [self stringMD5:string];
+//        id attribute = [self.attributedText attributedSubstringFromRange:self.selectedRange];
+//        [self.pasteBoardDict setObject:attribute forKey:md5String];
+    }
 }
 
 //粘贴
 - (void)paste:(id)sender{
-    
+    NSString *string = UIPasteboard.generalPasteboard.string;
+    if (string.length) {
+        //粘贴板上有可能是文字,有可能是表情的 plaintext, 所以要转换为表情
+        NSMutableAttributedString *attributedPasteString = [[NSMutableAttributedString alloc] initWithString:string];
+        [attributedPasteString replaceEmojiForFont:[UIFont systemFontOfSize:16]];
+        NSRange selectedRange = self.selectedRange;
+        NSMutableAttributedString *attributeContent = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedText];
+        [attributeContent insertAttributedString:attributedPasteString atIndex:self.selectedRange.location];
+        [attributeContent addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:16] range:NSMakeRange(0, attributeContent.length)];
+        self.attributedText = attributeContent;
+        self.selectedRange = NSMakeRange(selectedRange.location + attributedPasteString.length, 0);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(textViewDidChange:)]) {
+            __weak typeof(self) weakSelf = self;
+            [self.delegate textViewDidChange:weakSelf];
+        }
+    }
 }
 
 
@@ -225,11 +263,11 @@
     return _placeholderLabel;
 }
 
--(NSMutableDictionary *)pasteBoardDict{
-    if (!_pasteBoardDict) {
-        _pasteBoardDict = [NSMutableDictionary dictionary];
-    }
-    return _pasteBoardDict;
-}
+//-(NSMutableDictionary *)pasteBoardDict{
+//    if (!_pasteBoardDict) {
+//        _pasteBoardDict = [NSMutableDictionary dictionary];
+//    }
+//    return _pasteBoardDict;
+//}
 
 @end

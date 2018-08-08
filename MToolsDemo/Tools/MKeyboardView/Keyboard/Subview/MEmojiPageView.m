@@ -158,7 +158,9 @@
 }
 
 - (void)delegateDeleteEmoji{
-    
+    if (self.pageViewDelgate && [self.pageViewDelgate respondsToSelector:@selector(didClickDeleteButton)]) {
+        [self.pageViewDelgate didClickDeleteButton];
+    }
 }
 
 #pragma mark - 懒加载

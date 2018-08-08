@@ -13,6 +13,8 @@
 
 - (void)didClickEmojiModel:(MEmojiModel *)emojiModel;
 
+- (void)didClickDeleteButton;
+
 @end
 
 
