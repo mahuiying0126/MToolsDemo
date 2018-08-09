@@ -52,6 +52,8 @@ static NSInteger pageMax = 3;
 - (void)configFrame:(CGRect)frame{
     //设置 size
     [self configContentSize];
+    //设置scrollview的滚动位置
+    self.contentOffset = CGPointMake(self.scrollDirection * self.width, 0);
     //设置 pageView
     [self changeEmojiPageViewFrame];
 }
