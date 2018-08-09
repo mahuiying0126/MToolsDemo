@@ -95,9 +95,7 @@
 
 - (void)clearTextAndHidden{
     [self clearText];
-    if ([self.textView isFirstResponder]) {
-        [self.textView resignFirstResponder];
-    }
+    [self resignFirstResponder];
 }
 
 #pragma mark - 计算 textView高度以及 frame

@@ -7,7 +7,7 @@
 //
 
 #import "MEmojiPageView.h"
-
+#import "MEmojiPreviewView.h"
 @interface MEmojiPageView ()
 
 /** 总数*/
@@ -22,6 +22,8 @@
 @property (nonatomic, strong) NSTimer *deleteEmojiTimer;
 /** 当前页面的 emojimodel 数据*/
 @property (nonatomic, strong) NSArray *emojiModelArray;
+/** emoji 预览页面*/
+@property (nonatomic, strong) MEmojiPreviewView *emojiPreviewView;
 
 @end
 
@@ -43,7 +45,12 @@
             UIButton *button = [[UIButton alloc] init];
             button.tag = i;
             [button addTarget:self action:@selector(didClickEmojiButton:) forControlEvents:UIControlEventTouchUpInside];
+            UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPressEmoji:)];
+            longPressRecognizer.minimumPressDuration = 0.2;
+            longPressRecognizer.view.tag = i;
+            [button addGestureRecognizer:longPressRecognizer];
             [emojiButtons addObject:button];
+            
             [self addSubview:button];
         }
         self.emojiButtons = emojiButtons;
@@ -163,19 +170,71 @@
     }
 }
 
+- (void)didLongPressEmoji:(UILongPressGestureRecognizer *)recognizer{
+    NSInteger index = recognizer.view.tag;
+    if (index >= self.emojiModelArray.count) {
+        return;
+    }
+    MEmojiModel *model = self.emojiModelArray[index];
+    UIButton *currentButton = self.emojiButtons[index];
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateBegan:
+            [self showPreviewViewWithEmoji:model button:currentButton];
+            break;
+        case UIGestureRecognizerStateChanged:
+            [self showPreviewViewWithEmoji:model button:currentButton];
+            break;
+        case UIGestureRecognizerStateEnded:
+            [self hidePreviewViewForButton];
+            if (currentButton) {
+                [self didClickEmojiButton:currentButton];
+            }
+            break;
+        default:
+            [self hidePreviewViewForButton];
+            break;
+    }
+    
+}
+
+- (void)showPreviewViewWithEmoji:(MEmojiModel *)emoji button:(UIButton *)button{
+    if (!emoji) {
+        [self hidePreviewViewForButton];
+        return;
+    }
+    self.emojiPreviewView.emojiModel = emoji;
+    CGRect buttonFrameAtKeybord = CGRectMake(button.x, MStickerTopSpace + button.y, button.width, button.height);
+    self.emojiPreviewView.frame = CGRectMake(CGRectGetMidX(buttonFrameAtKeybord) - MEmojiPreviewWidth / 2, UIScreen.mainScreen.bounds.size.height - CGRectGetHeight(self.superview.superview.bounds)  - MEmojiPreviewHeight + CGRectGetMaxY(buttonFrameAtKeybord), MEmojiPreviewWidth, MEmojiPreviewHeight);
+    UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    if (window) {
+       [window addSubview:self.emojiPreviewView];
+    }
+    
+}
+
+- (void)hidePreviewViewForButton{
+    [self.emojiPreviewView removeFromSuperview];
+}
+
 #pragma mark - 懒加载
 
-- (UIButton *)deleteButton
-{
+- (UIButton *)deleteButton{
     if (!_deleteButton) {
         _deleteButton = [[UIButton alloc] init];
-        NSString *name = @"delete-emoji";
-        [_deleteButton setImage:[UIImage imageWithName:name path:@"emoji"] forState:UIControlStateNormal];
+        NSString *name = @"delete_emoji";
+        [_deleteButton setImage:[UIImage imageWithName:name path:@"keyboard"] forState:UIControlStateNormal];
         [_deleteButton addTarget:self action:@selector(didTouchDownDeleteButton:) forControlEvents:UIControlEventTouchDown];
         [_deleteButton addTarget:self action:@selector(didTouchUpInsideDeleteButton:) forControlEvents:UIControlEventTouchUpInside];
         [_deleteButton addTarget:self action:@selector(didTouchUpOutsideDeleteButton:) forControlEvents:UIControlEventTouchUpOutside];
     }
     return _deleteButton;
+}
+
+- (MEmojiPreviewView *)emojiPreviewView{
+    if (!_emojiPreviewView) {
+        _emojiPreviewView = [[MEmojiPreviewView alloc]init];
+    }
+    return _emojiPreviewView;
 }
 
 @end

@@ -94,7 +94,7 @@
     self.bottomGackgroundView.frame = CGRectMake(0,CGRectGetHeight(self.bounds) - MStickerSenderBtnHeight - SAFEAREAINSETS(self).bottom, CGRectGetWidth(self.frame), MStickerSenderBtnHeight + SAFEAREAINSETS(self).bottom);
     
     //底部emoji包
-    self.bottomScrollView.frame = CGRectMake(0,0,  CGRectGetWidth(self.bounds) - MStickerSenderBtnWidth, MStickerSenderBtnHeight);
+    self.bottomScrollView.frame = CGRectMake(0, 0,  CGRectGetWidth(self.bounds) - MStickerSenderBtnWidth, MStickerSenderBtnHeight);
     
     //发送按钮
     self.sendButton.frame = CGRectMake(CGRectGetWidth(self.bounds) - MStickerSenderBtnWidth, 0, MStickerSenderBtnWidth, MStickerSenderBtnHeight);

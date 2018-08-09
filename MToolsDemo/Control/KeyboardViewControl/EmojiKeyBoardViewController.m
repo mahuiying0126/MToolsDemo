@@ -22,12 +22,22 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    CGFloat maxHeigh = [UIScreen mainScreen].bounds.size.height - 64;
+    CGFloat maxHeigh = [UIScreen mainScreen].bounds.size.height - 44;
+    NSInteger bottom = 0;
+    if (@available(iOS 11.0, *)) {
+        bottom = UIApplication.sharedApplication.delegate.window.safeAreaInsets.bottom;
+    } else {
+        // Fallback on earlier versions
+    }
+    NSInteger top = 0;
+    if (@available(iOS 11.0, *)) {
+        top = UIApplication.sharedApplication.delegate.window.safeAreaInsets.top;
+    }
     CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width;
     self.keyboardView = [[MKeyboardInputView alloc]init];
     self.keyboardView.delgate = self;
     CGFloat fitHeiht = [self.keyboardView heightWithFit];
-    CGRect frame = CGRectMake(0, maxHeigh - fitHeiht, maxWidth, fitHeiht);
+    CGRect frame = CGRectMake(0, maxHeigh - fitHeiht - bottom - top, maxWidth, fitHeiht);
     self.keyboardView.frame = frame;
     self.keyboardView.initFrame = frame;
     [self.view addSubview:self.keyboardView];

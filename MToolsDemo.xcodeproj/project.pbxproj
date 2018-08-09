@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		911C0275CD92BF5901E7FA48 /* libPods-MToolsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E3279B0662217A42ABCF70 /* libPods-MToolsDemo.a */; };
+		C6442F0D211BF832004B1877 /* MEmojiPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6442F0C211BF832004B1877 /* MEmojiPreviewView.m */; };
 		C68F2390210EA2DE00ADE1B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F238F210EA2DE00ADE1B4 /* AppDelegate.m */; };
 		C68F2393210EA2DE00ADE1B4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F2392210EA2DE00ADE1B4 /* ViewController.m */; };
 		C68F2396210EA2DE00ADE1B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C68F2394210EA2DE00ADE1B4 /* Main.storyboard */; };
@@ -52,6 +53,8 @@
 /* Begin PBXFileReference section */
 		6609A7D54ED33EFBA4D2C814 /* Pods-MToolsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MToolsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MToolsDemo/Pods-MToolsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		C1E3279B0662217A42ABCF70 /* libPods-MToolsDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MToolsDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6442F0B211BF832004B1877 /* MEmojiPreviewView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEmojiPreviewView.h; sourceTree = "<group>"; };
+		C6442F0C211BF832004B1877 /* MEmojiPreviewView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEmojiPreviewView.m; sourceTree = "<group>"; };
 		C68F238B210EA2DE00ADE1B4 /* MToolsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MToolsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C68F238E210EA2DE00ADE1B4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C68F238F210EA2DE00ADE1B4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -158,6 +161,50 @@
 				E47FD7B1FB8FD3D38F15D962 /* Pods-MToolsDemo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C6442F07211BF73B004B1877 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				C6A29386211972BD00EF1F5E /* MTextView.h */,
+				C6A29387211972BD00EF1F5E /* MTextView.m */,
+			);
+			path = TextView;
+			sourceTree = "<group>";
+		};
+		C6442F08211BF754004B1877 /* EmojiKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C6A2939921199D5900EF1F5E /* MEmojiKeyboardView.h */,
+				C6A2939A21199D5900EF1F5E /* MEmojiKeyboardView.m */,
+				C6A293A72119AD7800EF1F5E /* MEmojiPageScrollView.h */,
+				C6A293A82119AD7800EF1F5E /* MEmojiPageScrollView.m */,
+				C6A293AD2119B94600EF1F5E /* MEmojiPageView.h */,
+				C6A293AE2119B94600EF1F5E /* MEmojiPageView.m */,
+			);
+			path = EmojiKeyboard;
+			sourceTree = "<group>";
+		};
+		C6442F09211BF77C004B1877 /* EmojiIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				C6A293A42119AB5F00EF1F5E /* MEmojiIndicatorButton.h */,
+				C6A293A52119AB5F00EF1F5E /* MEmojiIndicatorButton.m */,
+				C6A293BB211AFA9E00EF1F5E /* MEmojiIndictorPackView.h */,
+				C6A293BC211AFA9E00EF1F5E /* MEmojiIndictorPackView.m */,
+				C6A293C7211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.h */,
+				C6A293C8211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.m */,
+			);
+			path = EmojiIndicatorView;
+			sourceTree = "<group>";
+		};
+		C6442F0A211BF7A0004B1877 /* PreviewView */ = {
+			isa = PBXGroup;
+			children = (
+				C6442F0B211BF832004B1877 /* MEmojiPreviewView.h */,
+				C6442F0C211BF832004B1877 /* MEmojiPreviewView.m */,
+			);
+			path = PreviewView;
 			sourceTree = "<group>";
 		};
 		C68F2382210EA2DE00ADE1B4 = {
@@ -384,20 +431,10 @@
 		C6A2939421198C4700EF1F5E /* Subview */ = {
 			isa = PBXGroup;
 			children = (
-				C6A29386211972BD00EF1F5E /* MTextView.h */,
-				C6A29387211972BD00EF1F5E /* MTextView.m */,
-				C6A2939921199D5900EF1F5E /* MEmojiKeyboardView.h */,
-				C6A2939A21199D5900EF1F5E /* MEmojiKeyboardView.m */,
-				C6A293A42119AB5F00EF1F5E /* MEmojiIndicatorButton.h */,
-				C6A293A52119AB5F00EF1F5E /* MEmojiIndicatorButton.m */,
-				C6A293A72119AD7800EF1F5E /* MEmojiPageScrollView.h */,
-				C6A293A82119AD7800EF1F5E /* MEmojiPageScrollView.m */,
-				C6A293AD2119B94600EF1F5E /* MEmojiPageView.h */,
-				C6A293AE2119B94600EF1F5E /* MEmojiPageView.m */,
-				C6A293BB211AFA9E00EF1F5E /* MEmojiIndictorPackView.h */,
-				C6A293BC211AFA9E00EF1F5E /* MEmojiIndictorPackView.m */,
-				C6A293C7211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.h */,
-				C6A293C8211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.m */,
+				C6442F08211BF754004B1877 /* EmojiKeyboard */,
+				C6442F0A211BF7A0004B1877 /* PreviewView */,
+				C6442F09211BF77C004B1877 /* EmojiIndicatorView */,
+				C6442F07211BF73B004B1877 /* TextView */,
 			);
 			path = Subview;
 			sourceTree = "<group>";
@@ -533,6 +570,7 @@
 				C68F2390210EA2DE00ADE1B4 /* AppDelegate.m in Sources */,
 				C6A293AF2119B94600EF1F5E /* MEmojiPageView.m in Sources */,
 				C6A293842119347A00EF1F5E /* UIView+MKeyboard.m in Sources */,
+				C6442F0D211BF832004B1877 /* MEmojiPreviewView.m in Sources */,
 				C68F2405210EF7F300ADE1B4 /* SliderButtonViewController.m in Sources */,
 				C6A29388211972BE00EF1F5E /* MTextView.m in Sources */,
 				C68F244921103DF100ADE1B4 /* GKShowEasyViewHUD.m in Sources */,
