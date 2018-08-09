@@ -18,6 +18,7 @@
 
 /** 代理*/
 @property (nonatomic, weak) id<MEmojiIndictorPackViewDelegate> packViewDelegate;
+
 - (void)reloadFromData:(NSArray *)packArray;
 
 

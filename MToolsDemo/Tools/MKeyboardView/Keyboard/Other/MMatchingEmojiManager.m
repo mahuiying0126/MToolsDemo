@@ -44,9 +44,9 @@ static MMatchingEmojiManager *_manager = nil;
         return;
     }
     NSArray *array = [[NSArray alloc]initWithContentsOfFile:path];
-     
+    NSArray *temp = @[array.firstObject,array.firstObject,array.lastObject,array.lastObject,array.firstObject,array.lastObject,array.lastObject,array.lastObject,array.lastObject,array.firstObject,array.lastObject,array.lastObject];
     NSMutableArray <MEmojiPackageModel *> *packageEmoji = [NSMutableArray array];
-    for (NSDictionary *packInfo in array) {
+    for (NSDictionary *packInfo in temp) {
         //表情包名
         MEmojiPackageModel *package = [[MEmojiPackageModel alloc]init];
         package.emojiPackageName = packInfo[@"packagename"];
@@ -64,7 +64,7 @@ static MMatchingEmojiManager *_manager = nil;
         [packageEmoji addObject:package];
     }
     
-    self.allEmojiPackages = packageEmoji;
+    self.allEmojiPackages = packageEmoji.mutableCopy;
 }
 
 @end

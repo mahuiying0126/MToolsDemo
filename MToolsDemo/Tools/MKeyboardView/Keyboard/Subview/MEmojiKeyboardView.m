@@ -61,7 +61,7 @@
 
 - (void)addSubviews{
     
-    self.emojiPacks = [MMatchingEmojiManager shareEmojiManager].allEmojiPackages.mutableCopy;
+    self.emojiPacks = [[MMatchingEmojiManager shareEmojiManager].allEmojiPackages mutableCopy];
     self.backgroundColor = MColorForRGB(244, 244, 244);
     [self addSubview:self.emojiScrollView];
     [self addSubview:self.pageControl];
@@ -175,6 +175,13 @@
 
 #pragma mark - 懒加载
 
+- (NSArray<MEmojiPackageModel *> *)emojiPacks{
+    if (!_emojiPacks) {
+        _emojiPacks = [[NSArray alloc]init];
+    }
+    return _emojiPacks;
+}
+
 -(MEmojiPageScrollView *)emojiScrollView{
     if (!_emojiScrollView) {
         _emojiScrollView = [[MEmojiPageScrollView alloc]init];
@@ -226,6 +233,15 @@
         _bottomGackgroundView.backgroundColor = [UIColor whiteColor];
     }
     return _bottomGackgroundView;
+}
+
+- (void)dealloc{
+    for (MEmojiPackageModel *model in self.emojiPacks) {
+        if (model.isSelect) {
+            model.isSelect = NO;
+        }
+    }
+    NSLog(@"表情页面销毁!");
 }
 
 @end
