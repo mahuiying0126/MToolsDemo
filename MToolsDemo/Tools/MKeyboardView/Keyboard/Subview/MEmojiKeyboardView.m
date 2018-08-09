@@ -236,6 +236,7 @@
 }
 
 - (void)dealloc{
+    //退出后要清一下状态,要不然下次进来可能选择两个
     for (MEmojiPackageModel *model in self.emojiPacks) {
         if (model.isSelect) {
             model.isSelect = NO;
