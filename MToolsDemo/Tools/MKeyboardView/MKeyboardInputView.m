@@ -304,7 +304,7 @@
     
     [super resignFirstResponder];
     self.keepsPreModeTextViewWillEdited = YES;
-    [self changeKeyboardTo:KeyboardTypeNone];
+    [self changeKeyboardTo:KeyboardTypeSystem];
     [self setNeedsLayout];
     return [self.textView resignFirstResponder];
 }
