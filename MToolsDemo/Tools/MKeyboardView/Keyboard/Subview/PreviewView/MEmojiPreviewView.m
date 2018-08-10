@@ -17,8 +17,7 @@
 
 @implementation MEmojiPreviewView
 
-- (instancetype)init
-{
+- (instancetype)init{
     if (self = [super init]) {
         self.image = [UIImage imageWithName:@"emoji_preview" path:@"keyboard"];
         [self addSubview:self.emojiImageView];
@@ -27,8 +26,7 @@
     return self;
 }
 
-- (void)layoutSubviews
-{
+- (void)layoutSubviews{
     [super layoutSubviews];
     
     if (!self.emojiModel) {
@@ -50,20 +48,19 @@
     
 }
 
-- (UIImageView *)emojiImageView
-{
+- (UIImageView *)emojiImageView{
     if (!_emojiImageView) {
         _emojiImageView = [[UIImageView alloc] init];
     }
     return _emojiImageView;
 }
 
-- (UILabel *)descriptionLabel
-{
+- (UILabel *)descriptionLabel{
     if (!_descriptionLabel) {
         _descriptionLabel = [[UILabel alloc] init];
         _descriptionLabel.font = [UIFont systemFontOfSize:11.0];
         _descriptionLabel.textColor = MColorForRGB(74, 74, 74);
+        _descriptionLabel.adjustsFontSizeToFitWidth = YES;
         _descriptionLabel.lineBreakMode = NSLineBreakByCharWrapping;
     }
     return _descriptionLabel;

@@ -29,10 +29,8 @@
     } else {
         // Fallback on earlier versions
     }
-    NSInteger top = 0;
-    if (@available(iOS 11.0, *)) {
-        top = UIApplication.sharedApplication.delegate.window.safeAreaInsets.top;
-    }
+    NSInteger top = [UIApplication sharedApplication].statusBarFrame.size.height;
+    
     CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width;
     self.keyboardView = [[MKeyboardInputView alloc]init];
     self.keyboardView.delgate = self;

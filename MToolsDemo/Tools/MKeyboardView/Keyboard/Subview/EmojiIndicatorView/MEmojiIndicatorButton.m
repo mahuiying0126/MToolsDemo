@@ -43,8 +43,7 @@ static CGFloat lineHeight = 22.0;
 }
 
 
-- (void)layoutSubviews
-{
+- (void)layoutSubviews{
     [super layoutSubviews];
     
     for (UIView *lineView in self.lineViews) {
