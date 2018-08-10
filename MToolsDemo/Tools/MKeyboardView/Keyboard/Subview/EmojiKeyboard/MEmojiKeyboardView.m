@@ -140,6 +140,7 @@
 
 - (void)didClickEmojiModel:(MEmojiModel *)emojiModel{
     if (self.delegate && [self.delegate respondsToSelector:@selector(keyBoardDidClickEmojiModel:)]) {
+        [[UIDevice currentDevice] playInputClick];
         [self.delegate keyBoardDidClickEmojiModel:emojiModel];
     }
 }
