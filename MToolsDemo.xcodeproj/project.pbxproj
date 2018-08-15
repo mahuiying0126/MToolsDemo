@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		911C0275CD92BF5901E7FA48 /* libPods-MToolsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E3279B0662217A42ABCF70 /* libPods-MToolsDemo.a */; };
 		C6442F0D211BF832004B1877 /* MEmojiPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6442F0C211BF832004B1877 /* MEmojiPreviewView.m */; };
+		C670F543212282A4008FC986 /* MDrawboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C670F542212282A4008FC986 /* MDrawboardView.m */; };
+		C670F547212285AA008FC986 /* MBaseDrawModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C670F546212285AA008FC986 /* MBaseDrawModel.m */; };
+		C670F54B2122885B008FC986 /* DrawboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C670F54A2122885B008FC986 /* DrawboardViewController.m */; };
 		C68F2390210EA2DE00ADE1B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F238F210EA2DE00ADE1B4 /* AppDelegate.m */; };
 		C68F2393210EA2DE00ADE1B4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C68F2392210EA2DE00ADE1B4 /* ViewController.m */; };
 		C68F2396210EA2DE00ADE1B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C68F2394210EA2DE00ADE1B4 /* Main.storyboard */; };
@@ -55,6 +58,12 @@
 		C1E3279B0662217A42ABCF70 /* libPods-MToolsDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MToolsDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6442F0B211BF832004B1877 /* MEmojiPreviewView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEmojiPreviewView.h; sourceTree = "<group>"; };
 		C6442F0C211BF832004B1877 /* MEmojiPreviewView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEmojiPreviewView.m; sourceTree = "<group>"; };
+		C670F541212282A4008FC986 /* MDrawboardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDrawboardView.h; sourceTree = "<group>"; };
+		C670F542212282A4008FC986 /* MDrawboardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDrawboardView.m; sourceTree = "<group>"; };
+		C670F545212285AA008FC986 /* MBaseDrawModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBaseDrawModel.h; sourceTree = "<group>"; };
+		C670F546212285AA008FC986 /* MBaseDrawModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBaseDrawModel.m; sourceTree = "<group>"; };
+		C670F5492122885B008FC986 /* DrawboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawboardViewController.h; sourceTree = "<group>"; };
+		C670F54A2122885B008FC986 /* DrawboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawboardViewController.m; sourceTree = "<group>"; };
 		C68F238B210EA2DE00ADE1B4 /* MToolsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MToolsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C68F238E210EA2DE00ADE1B4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C68F238F210EA2DE00ADE1B4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -207,6 +216,34 @@
 			path = PreviewView;
 			sourceTree = "<group>";
 		};
+		C670F54021219468008FC986 /* DrawBoard */ = {
+			isa = PBXGroup;
+			children = (
+				C670F54421228594008FC986 /* Model */,
+				C670F541212282A4008FC986 /* MDrawboardView.h */,
+				C670F542212282A4008FC986 /* MDrawboardView.m */,
+			);
+			path = DrawBoard;
+			sourceTree = "<group>";
+		};
+		C670F54421228594008FC986 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C670F545212285AA008FC986 /* MBaseDrawModel.h */,
+				C670F546212285AA008FC986 /* MBaseDrawModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C670F54821228845008FC986 /* DrawBoard */ = {
+			isa = PBXGroup;
+			children = (
+				C670F5492122885B008FC986 /* DrawboardViewController.h */,
+				C670F54A2122885B008FC986 /* DrawboardViewController.m */,
+			);
+			path = DrawBoard;
+			sourceTree = "<group>";
+		};
 		C68F2382210EA2DE00ADE1B4 = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +280,7 @@
 		C68F23A4210EA4D800ADE1B4 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				C670F54821228845008FC986 /* DrawBoard */,
 				C6A2937A21192E8C00EF1F5E /* KeyboardViewControl */,
 				C68F244A21103FF000ADE1B4 /* HUDViewControl */,
 				C68F23ED210EAD0700ADE1B4 /* SlideViewControl */,
@@ -293,6 +331,7 @@
 		C68F23F1210EAE0800ADE1B4 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				C670F54021219468008FC986 /* DrawBoard */,
 				C6A2937E2119322900EF1F5E /* MKeyboardView */,
 				C6A2937621192E0600EF1F5E /* MReplyView */,
 				C68F244E211041E100ADE1B4 /* MLoadingHUD */,
@@ -546,6 +585,7 @@
 				C6A2939221198A7700EF1F5E /* MEmojiPackageModel.m in Sources */,
 				C6A2939821199A8F00EF1F5E /* MMatchingEmojiManager.m in Sources */,
 				C6A293BA211AF04100EF1F5E /* NSAttributedString+EmojiTag.m in Sources */,
+				C670F547212285AA008FC986 /* MBaseDrawModel.m in Sources */,
 				C68F2402210EF73B00ADE1B4 /* NSString+MSliderButton.m in Sources */,
 				C6A293C9211B02BC00EF1F5E /* MEmojiIndicatorCollectionViewCell.m in Sources */,
 				C68F23F5210EAE3C00ADE1B4 /* MSliderProgressView.m in Sources */,
@@ -554,6 +594,7 @@
 				C68F23F8210EAE6900ADE1B4 /* UIView+MSlider.m in Sources */,
 				C68F24542110493B00ADE1B4 /* MLoadingOptions.m in Sources */,
 				C6A2939B21199D5900EF1F5E /* MEmojiKeyboardView.m in Sources */,
+				C670F543212282A4008FC986 /* MDrawboardView.m in Sources */,
 				C68F23FE210EF66500ADE1B4 /* MSlideButtonView.m in Sources */,
 				C68F244D21103FFD00ADE1B4 /* HUDViewController.m in Sources */,
 				C68F23F0210EAD1600ADE1B4 /* SliderViewController.m in Sources */,
@@ -564,6 +605,7 @@
 				C68F245B211073A600ADE1B4 /* MLoadingType.m in Sources */,
 				C68F23EB210EA5A700ADE1B4 /* MNavigationViewController.m in Sources */,
 				C68F2393210EA2DE00ADE1B4 /* ViewController.m in Sources */,
+				C670F54B2122885B008FC986 /* DrawboardViewController.m in Sources */,
 				C68F23FF210EF66500ADE1B4 /* MSlideButtonCollectionViewCell.m in Sources */,
 				C6A293812119324B00EF1F5E /* MKeyboardInputView.m in Sources */,
 				C68F239E210EA2E000ADE1B4 /* main.m in Sources */,
