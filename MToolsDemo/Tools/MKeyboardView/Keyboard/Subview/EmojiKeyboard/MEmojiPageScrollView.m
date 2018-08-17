@@ -9,7 +9,11 @@
 #import "MEmojiPageScrollView.h"
 #import "MKeyboardDefineHeader.h"
 #import "MEmojiPageView.h"
-@interface MEmojiPageScrollView ()<UIScrollViewDelegate,MEmojiPageViewDelegate>
+@interface MEmojiPageScrollView ()<UIScrollViewDelegate,MEmojiPageViewDelegate>{
+    CGFloat startContentOffsetX;//滚动开始的坐标
+    CGFloat willEndContentOffsetX; //滚动即将停止的坐标
+    CGFloat endContentOffsetX;//滚动结束的坐标
+}
 
 /** 表情包*/
 @property (nonatomic, strong) MEmojiPackageModel *packModel;
@@ -175,7 +179,10 @@ static NSInteger pageMax = 3;
         self.scrollDirection = EmojiScrollMid;
         [self setUpPageCompleted:self.middlePage];
     }
+    
 }
+
+
 
 //计算滚动后page的索引下标
 - (void)setImagePageChange{
@@ -189,6 +196,24 @@ static NSInteger pageMax = 3;
         [self.pageDelegate configIndicatorIndex:index];
     }
 }
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    
+    if (endContentOffsetX < scrollView.contentOffset.x) {
+        NSLog(@"左");
+    }else{
+        NSLog(@"右");
+    }
+    
+}
+
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    endContentOffsetX = scrollView.contentOffset.x;
+    
+}
+
 
 #pragma mark - 设置点击 emoji 代理
 

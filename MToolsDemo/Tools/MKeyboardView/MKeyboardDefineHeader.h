@@ -42,7 +42,7 @@ static CGFloat MEmojiBtnWH = 40.0;//emoji按钮宽高
 static CGFloat MEmojiBtnLeftSpace = 10.0;//emoji按钮距左间距
 static CGFloat MEmojiBtnSpace = 5.0;//emoji按钮间距
 static NSInteger MEmojiTextMaxLine = 3;//
-static NSInteger MEmojiTextMinLine = 2;//最大与最小行计算
+static NSInteger MEmojiTextMinLine = 1;//最大与最小行计算
 static CGFloat MTextViewTextFont = 16;//字号大小
 //表情键盘页面
 static CGFloat MStickerTopSpace = 12.0;//顶部间距

@@ -103,9 +103,12 @@
 //计算整体高度
 - (CGFloat)heightWithFit{
     CGFloat textViewHeight = [self.textView.layoutManager usedRectForTextContainer:self.textView.textContainer].size.height;
+    
+    CGFloat heigth = textViewHeight + 14.0;
     CGFloat minHeight = [self heightWithLine:MEmojiTextMinLine];
     CGFloat maxHeight = [self heightWithLine:MEmojiTextMaxLine];
-    CGFloat calculateHeight = MIN(maxHeight, MAX(minHeight, textViewHeight));
+    CGFloat calculateHeight = MIN(maxHeight, MAX(minHeight, heigth));
+    
     CGFloat height = calculateHeight + MTextViewTopSpace * 2;
     return height;
 }
@@ -114,7 +117,7 @@
 - (CGFloat)heightWithLine:(NSInteger)lineNumber{
     NSString *onelineStr = [[NSString alloc] init];
     CGRect onelineRect = [onelineStr boundingRectWithSize:CGSizeMake(self.textView.frame.size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:MTextViewTextFont] } context:nil];
-    CGFloat heigth = lineNumber * onelineRect.size.height + (lineNumber - 1) - 3;
+    CGFloat heigth = lineNumber * onelineRect.size.height  + 14.0;
     //如果设置文本样式,这部分需要重新算
     return heigth;
 }
@@ -227,11 +230,16 @@
     }
     void (^ changesAnimations)(void) = ^{
         [self setFrame:frame];
-        [self setNeedsLayout];
+        
+        if (!self.keepsPreModeTextViewWillEdited) {
+            self.textView.frame = [self calculateTextFrame];
+            self.emojiButton.frame = CGRectMake(MEmojiBtnLeftSpace, self.textView.bottom - MEmojiBtnWH + MEmojiBtnSpace, MEmojiBtnWH, MEmojiBtnWH);
+        }
+ 
     };
     if (changesAnimations) {
         if (animated) {
-            [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:changesAnimations completion:nil];
+            [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:changesAnimations completion:nil];
         } else {
             changesAnimations();
         }
@@ -267,9 +275,7 @@
     CGRect newFrame = CGRectMake(CGRectGetMinX(self.frame), CGRectGetMaxY(self.frame) - size.height, size.width, size.height);
     //动画
     [self setFrame:newFrame animated:YES];
-    if (!self.keepsPreModeTextViewWillEdited) {
-        self.textView.frame = [self calculateTextFrame];
-    }
+    
     [self.textView scrollRangeToVisible:self.textView.selectedRange];
     
     
