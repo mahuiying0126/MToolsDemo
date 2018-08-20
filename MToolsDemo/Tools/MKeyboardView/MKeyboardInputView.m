@@ -22,8 +22,6 @@
 /** 表情页面*/
 @property (nonatomic, strong) MEmojiKeyboardView *emojiKeyboardView;
 
-/** 是否在编辑状态*/
-@property (nonatomic, assign) BOOL keepsPreModeTextViewWillEdited;
 /** 键盘是否弹出*/
 @property (nonatomic, assign) BOOL isShowKeyboard;
 /** 键盘类型*/
@@ -55,7 +53,6 @@
     self.height = [self heightWithFit];
     self.exclusiveTouch = YES;
     self.keyboardType = KeyboardTypeSystem;
-    self.keepsPreModeTextViewWillEdited = YES;
     self.isShowKeyboard = NO;
     [self addSubview:self.textView];
     [self addSubview:self.emojiButton];
@@ -127,14 +124,7 @@
     CGFloat X = MEmojiBtnLeftSpace + MEmojiBtnWH + MTextViewLeftSpace;
     CGFloat width = self.bounds.size.width - X - MTextViewLeftSpace;
     CGFloat height = CGRectGetHeight(self.bounds) - 2 * MTextViewTopSpace;
-    if (self.isShowKeyboard) {
-        return CGRectMake(X, MTextViewTopSpace, width, height);
-    }else{
-        CGFloat textViewHeight = [self heightWithFit] - MTextViewTopSpace * 2;
-        CGFloat space = (CGRectGetHeight(self.bounds) - textViewHeight)/2;
-        self.emojiButton.frame = CGRectMake(MEmojiBtnLeftSpace, space, MEmojiBtnWH, MEmojiBtnWH);
-        return CGRectMake(X, space, width, textViewHeight);
-    }
+    return CGRectMake(X, MTextViewTopSpace, width, height);
     
 }
 
@@ -230,11 +220,8 @@
     }
     void (^ changesAnimations)(void) = ^{
         [self setFrame:frame];
-        
-        if (!self.keepsPreModeTextViewWillEdited) {
-            self.textView.frame = [self calculateTextFrame];
-            self.emojiButton.frame = CGRectMake(MEmojiBtnLeftSpace, self.textView.bottom - MEmojiBtnWH + MEmojiBtnSpace, MEmojiBtnWH, MEmojiBtnWH);
-        }
+        self.textView.frame = [self calculateTextFrame];
+        self.emojiButton.frame = CGRectMake(MEmojiBtnLeftSpace, self.textView.bottom - MEmojiBtnWH + MEmojiBtnSpace, MEmojiBtnWH, MEmojiBtnWH);
  
     };
     if (changesAnimations) {
@@ -249,23 +236,12 @@
 
 #pragma mark - textView 代理实现
 
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
-    self.keepsPreModeTextViewWillEdited = NO;
-    
-    return YES;
-}
-
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     if ([@"\n" isEqualToString:text]) {
         [self keyBoardDidSendButton];
         return NO;
     }
     return YES;
-}
-
-- (void)textViewDidEndEditing:(UITextView *)textView{
-    self.keepsPreModeTextViewWillEdited = YES;
-    
 }
 
 - (void)textViewDidChange:(UITextView *)textView{
@@ -277,8 +253,7 @@
     [self setFrame:newFrame animated:YES];
     
     [self.textView scrollRangeToVisible:self.textView.selectedRange];
-    
-    
+  
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event{
@@ -307,7 +282,6 @@
 - (BOOL)resignFirstResponder{
     
     [super resignFirstResponder];
-    self.keepsPreModeTextViewWillEdited = YES;
     [self changeKeyboardTo:KeyboardTypeSystem];
     [self setNeedsLayout];
     return [self.textView resignFirstResponder];
@@ -339,7 +313,6 @@
     
     NSRange selectedRange = self.textView.selectedRange;
     NSString *emojiString = [NSString stringWithFormat:@"[%@]", emojiModel.emojiDescription];
-    
     UIFont *font = [UIFont systemFontOfSize:MTextViewTextFont];
     CGFloat emojiHeight = font.lineHeight;
     NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
