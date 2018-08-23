@@ -109,7 +109,7 @@
     if (@available(iOS 11.0, *)) {
         bottomInset = UIApplication.sharedApplication.delegate.window.safeAreaInsets.bottom;
     }
-    CGFloat height = bottomInset + MStickerTopSpace + MStickerScrollerHeight + MStickerControlPageTopSpace + MStickerControlPageTopSpace + MStickerControlPageHeight + MStickerControlPageBottomSpace + MStickerSenderBtnHeight;
+    CGFloat height = bottomInset + MStickerTopSpace + MStickerScrollerHeight + MStickerControlPageTopSpace + MStickerControlPageBottomSpace + MStickerControlPageHeight  + MStickerSenderBtnHeight;
     return height;
     
 }

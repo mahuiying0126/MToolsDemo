@@ -49,7 +49,7 @@ static CGFloat MStickerTopSpace = 12.0;//顶部间距
 static CGFloat MStickerScrollerHeight = 132.0;//滚动高度
 static CGFloat MStickerControlPageTopSpace = 10.0;//页码顶部间距
 static CGFloat MStickerControlPageHeight = 7.0;//页码控件大小
-static CGFloat MStickerControlPageBottomSpace = 6.0;//页码底部间距
+static CGFloat MStickerControlPageBottomSpace = 10.0;//页码底部间距
 static CGFloat MStickerSenderBtnWidth = 55.0;//发送按钮宽
 static CGFloat MStickerSenderBtnHeight = 44.0;//发送按钮高
 //表情行数

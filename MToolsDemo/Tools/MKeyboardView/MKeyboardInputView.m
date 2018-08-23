@@ -70,7 +70,7 @@
     [super layoutSubviews];
     self.textView.frame = [self calculateTextFrame];
     self.emojiButton.frame = CGRectMake(MEmojiBtnLeftSpace, self.textView.bottom - MEmojiBtnWH + MEmojiBtnSpace, MEmojiBtnWH, MEmojiBtnWH);
-    [self refreshTextViewUI];
+//    [self refreshTextViewUI];
 }
 
 #pragma mark - 公开方法
@@ -207,9 +207,6 @@
     return CGSizeMake(size.width, [self heightWithFit]);
 }
 
-- (void)setFrame:(CGRect)frame{
-    [super setFrame:frame];
-}
 
 #pragma mark - 动态更新 textView frame
 
@@ -245,7 +242,7 @@
 }
 
 - (void)textViewDidChange:(UITextView *)textView{
-    [self refreshTextViewUI];
+//    [self refreshTextViewUI];
     
     CGSize size = [self sizeThatFits:self.bounds.size];
     CGRect newFrame = CGRectMake(CGRectGetMinX(self.frame), CGRectGetMaxY(self.frame) - size.height, size.width, size.height);
